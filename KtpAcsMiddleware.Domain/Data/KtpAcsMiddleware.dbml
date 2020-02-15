@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Database Name="KtpAcsMiddleware" Class="KtpAcsMiddlewareDataContext"
+          xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings"
+              ConnectionString="Data Source=.;Initial Catalog=KtpAcsMiddleware;Integrated Security=True"
+              SettingsObjectName="KtpAcsMiddleware.Domain.Properties.Settings"
+              SettingsPropertyName="KtpAcsMiddlewareConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.FaceDevice" Member="FaceDevices">
+    <Type Name="FaceDevice">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IpAddress" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdentityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsCheckIn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="FaceDevice_FaceDeviceWorker" Member="FaceDeviceWorkers" ThisKey="Id" OtherKey="DeviceId"
+                   Type="FaceDeviceWorker" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ZmskAuthenticationSync" Member="ZmskAuthenticationSyncs">
+    <Type Name="ZmskAuthenticationSync">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProjectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ThirdPartyWorkerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClockType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClockPic" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FeedbackCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Feedback" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ZmskAuthentication_ZmskAuthenticationSync" Member="ZmskAuthentication" ThisKey="Id"
+                   OtherKey="Id" Type="ZmskAuthentication" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FaceDeviceWorker" Member="FaceDeviceWorkers">
+    <Type Name="FaceDeviceWorker">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdentityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true"
+              CanBeNull="false" />
+      <Column Name="WorkerId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="FaceDevice_FaceDeviceWorker" Member="FaceDevice" ThisKey="DeviceId" OtherKey="Id"
+                   Type="FaceDevice" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Worker_FaceDeviceWorker" Member="Worker" ThisKey="WorkerId" OtherKey="Id" Type="Worker"
+                   IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FileMap" Member="FileMaps">
+    <Type Name="FileMap">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PhysicalFileName" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PhysicalFullName" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Length" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileExtensionName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="QiniuKey" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="QiniuUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrgUser" Member="OrgUsers">
+    <Type Name="OrgUser">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mail" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Team" Member="Teams">
+    <Type Name="Team">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdentityId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true"
+              CanBeNull="false" />
+      <Column Name="ProjectId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkTypeId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LeaderId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Team_TeamSync" Member="TeamSync" ThisKey="Id" OtherKey="Id" Type="TeamSync" Cardinality="One" />
+      <Association Name="Team_Worker" Member="Workers" ThisKey="Id" OtherKey="TeamId" Type="Worker" />
+      <Association Name="TeamWorkType_Team" Member="TeamWorkType" ThisKey="WorkTypeId" OtherKey="Id"
+                   Type="TeamWorkType" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TeamSync" Member="TeamSyncs">
+    <Type Name="TeamSync">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThirdPartyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FeedbackCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Feedback" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Team_TeamSync" Member="Team" ThisKey="Id" OtherKey="Id" Type="Team" IsForeignKey="true"
+                   DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TeamWorkType" Member="TeamWorkTypes">
+    <Type Name="TeamWorkType">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="TeamWorkType_Team" Member="Teams" ThisKey="Id" OtherKey="WorkTypeId" Type="Team" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Worker" Member="Workers">
+    <Type Name="Worker">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdentityId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TeamId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="InTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OutTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdentityFaceSim" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AddressNow" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ContractPicId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FacePicId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatorId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BankCardTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BankCardCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Worker_FaceDeviceWorker" Member="FaceDeviceWorkers" ThisKey="Id" OtherKey="WorkerId"
+                   Type="FaceDeviceWorker" />
+      <Association Name="Worker_WorkerAuth" Member="WorkerAuths" ThisKey="Id" OtherKey="WorkerId" Type="WorkerAuth" />
+      <Association Name="Worker_WorkerSync" Member="WorkerSync" ThisKey="Id" OtherKey="Id" Type="WorkerSync"
+                   Cardinality="One" />
+      <Association Name="Team_Worker" Member="Team" ThisKey="TeamId" OtherKey="Id" Type="Team" IsForeignKey="true"
+                   DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="WorkerIdentity_Worker" Member="WorkerIdentity" ThisKey="IdentityId" OtherKey="Id"
+                   Type="WorkerIdentity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkerAuth" Member="WorkerAuths">
+    <Type Name="WorkerAuth">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkerId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TeamId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ClockType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClockTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SimilarDegree" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="IsPass" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ClockPicId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AuthId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClientCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Worker_WorkerAuth" Member="Worker" ThisKey="WorkerId" OtherKey="Id" Type="Worker"
+                   IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkerIdentity" Member="WorkerIdentities">
+    <Type Name="WorkerIdentity">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nation" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="IssuingAuthority" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ActivateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InvalidTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PicId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BackPicId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Base64Photo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreateType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreditGrade" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="WorkerIdentity_Worker" Member="Workers" ThisKey="Id" OtherKey="IdentityId" Type="Worker" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkerSync" Member="WorkerSyncs">
+    <Type Name="WorkerSync">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThirdPartyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeamThirdPartyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FeedbackCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Feedback" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Worker_WorkerSync" Member="Worker" ThisKey="Id" OtherKey="Id" Type="Worker"
+                   IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ZmskAuthentication" Member="ZmskAuthentications">
+    <Type Name="ZmskAuthentication">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdNumber" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Nation" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Result" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeviceNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AuthTimeStamp" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdcardImage" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IdcardInfo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SimilarDegree" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SignOffice" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LegalDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Birthday" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ZmskAuthentication_ZmskAuthenticationSync" Member="ZmskAuthenticationSync" ThisKey="Id"
+                   OtherKey="Id" Type="ZmskAuthenticationSync" Cardinality="One" />
+    </Type>
+  </Table>
+</Database>

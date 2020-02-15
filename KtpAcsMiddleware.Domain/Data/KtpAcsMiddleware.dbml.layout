@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.25, 15.5" name="KtpAcsMiddleware">
+  <DataContextMoniker Name="/KtpAcsMiddlewareDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6c360685-65f4-4051-a9c4-5b2c834db492" absoluteBounds="9.25, 1.5, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/FaceDevice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e51c027b-c9c9-4844-852d-2d9065aebbda" absoluteBounds="9.265, 1.96, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65ed687a-4a6d-489e-86f4-b6b3dd147cf2" absoluteBounds="3.5, 11.875, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/ZmskAuthenticationSync" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ac05ec7-bd49-459b-9c6c-9dafabfbc514" absoluteBounds="3.515, 12.335, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa50e0e3-a73a-4552-802b-6e76b3f67bc7" absoluteBounds="12, 4.5, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/FaceDeviceWorker" />
+      <nestedChildShapes>
+        <elementListCompartment Id="16ac4eba-cf9c-4143-8307-db37c22bf866" absoluteBounds="12.015, 4.96, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd635d63-c5a4-42af-8cb1-ede8dca5f740" absoluteBounds="0.75, 0.75, 2, 2.8308638509114576">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/FileMap" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51641874-7549-49ff-a545-259843dff78a" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e63519e6-9a47-4d3d-b7fb-7a5b6a173a09" absoluteBounds="6.75, 10.75, 2, 2.8308638509114559">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/OrgUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca8c7071-c9b0-4085-9af0-d35a9a430831" absoluteBounds="6.765, 11.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4b4dc47-31cd-4db6-88e1-2423d6f8df1a" absoluteBounds="3.5, 6.375, 2, 2.6460697428385416">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/Team" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e9e51b0-8629-4fe0-9dce-d626a12c9bfe" absoluteBounds="3.515, 6.835, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="675fdfa3-85a6-495c-bb6e-9f48707f8169" absoluteBounds="6.25, 6.5, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/TeamSync" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3843f90c-4a48-45a9-a311-261428b55121" absoluteBounds="6.265, 6.96, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f487cef9-50c3-4c8c-82b8-e8afb671b6a5" absoluteBounds="0.75, 6.875, 2, 1.7220992024739585">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/TeamWorkType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12b91df3-e06a-44b1-aa75-2a1cec88f4bc" absoluteBounds="0.765, 7.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="869e7791-cad0-42e3-b821-c0d05b2d3d90" absoluteBounds="9.25, 5.625, 2, 4.1244226074218737">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/Worker" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae5badb7-a952-406e-ad3c-be5eb7a3db87" absoluteBounds="9.265, 6.085, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6cdcb36f-a11b-40cf-a8a7-22904fd0fe8c" absoluteBounds="12, 11, 2, 3.0156579589843773">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/WorkerAuth" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5b969ed-911b-4981-850c-ff257c84e9f1" absoluteBounds="12.015, 11.46, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f83c9552-0a7d-4d1a-b740-8ae18035f495" absoluteBounds="6.5, 1.625, 2, 4.1244226074218737">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/WorkerIdentity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cce876cc-eeae-472c-8674-b018821902bd" absoluteBounds="6.515, 2.085, 1.9700000000000002, 3.564422607421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60e38be5-d828-4aa0-a12e-01cf86ab50c3" absoluteBounds="12, 7.75, 2, 2.4612756347656246">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/WorkerSync" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8abf43be-e388-417d-8e30-bf3c422361b0" absoluteBounds="12.015, 8.21, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5e9106e5-b66d-4167-a7fc-831e68c1a4e2" absoluteBounds="0.75, 11, 2, 4.3092167154947916">
+      <DataClassMoniker Name="/KtpAcsMiddlewareDataContext/ZmskAuthentication" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d2d471a-d98d-4e32-8300-b384aab3c52e" absoluteBounds="0.765, 11.46, 1.9700000000000002, 3.749216715494792" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.25 : 2.73063781738281); (13 : 2.73063781738281); (13 : 4.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/FaceDevice/FaceDevice_FaceDeviceWorker" />
+      <nodes>
+        <classShapeMoniker Id="6c360685-65f4-4051-a9c4-5b2c834db492" />
+        <classShapeMoniker Id="fa50e0e3-a73a-4552-802b-6e76b3f67bc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.63824076334635); (6.25 : 7.63824076334635)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/Team/Team_TeamSync" />
+      <nodes>
+        <classShapeMoniker Id="d4b4dc47-31cd-4db6-88e1-2423d6f8df1a" />
+        <classShapeMoniker Id="675fdfa3-85a6-495c-bb6e-9f48707f8169" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.73604960123698); (3.5 : 7.73604960123698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/TeamWorkType/TeamWorkType_Team" />
+      <nodes>
+        <classShapeMoniker Id="f487cef9-50c3-4c8c-82b8-e8afb671b6a5" />
+        <classShapeMoniker Id="d4b4dc47-31cd-4db6-88e1-2423d6f8df1a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 6.29313781738281); (12 : 6.29313781738281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/Worker/Worker_FaceDeviceWorker" />
+      <nodes>
+        <classShapeMoniker Id="869e7791-cad0-42e3-b821-c0d05b2d3d90" />
+        <classShapeMoniker Id="fa50e0e3-a73a-4552-802b-6e76b3f67bc7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.93002563476563); (8.32291666666667 : 8.93002563476563 : JumpStart); (8.48958333333333 : 8.93002563476563 : JumpEnd); (9.25 : 8.93002563476563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/Team/Team_Worker" />
+      <nodes>
+        <classShapeMoniker Id="d4b4dc47-31cd-4db6-88e1-2423d6f8df1a" />
+        <classShapeMoniker Id="869e7791-cad0-42e3-b821-c0d05b2d3d90" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.25 : 9.74942260742187); (10.25 : 12.5078289794922); (12 : 12.5078289794922)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/Worker/Worker_WorkerAuth" />
+      <nodes>
+        <classShapeMoniker Id="869e7791-cad0-42e3-b821-c0d05b2d3d90" />
+        <classShapeMoniker Id="6cdcb36f-a11b-40cf-a8a7-22904fd0fe8c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.40625 : 5.74942260742187); (8.40625 : 9.37097662109375); (9.25 : 9.37097662109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/WorkerIdentity/WorkerIdentity_Worker" />
+      <nodes>
+        <classShapeMoniker Id="f83c9552-0a7d-4d1a-b740-8ae18035f495" />
+        <classShapeMoniker Id="869e7791-cad0-42e3-b821-c0d05b2d3d90" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 8.74971130371094); (12 : 8.74971130371094)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/Worker/Worker_WorkerSync" />
+      <nodes>
+        <classShapeMoniker Id="869e7791-cad0-42e3-b821-c0d05b2d3d90" />
+        <classShapeMoniker Id="60e38be5-d828-4aa0-a12e-01cf86ab50c3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 13.1980348714193); (3.5 : 13.1980348714193)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KtpAcsMiddlewareDataContext/ZmskAuthentication/ZmskAuthentication_ZmskAuthenticationSync" />
+      <nodes>
+        <classShapeMoniker Id="5e9106e5-b66d-4167-a7fc-831e68c1a4e2" />
+        <classShapeMoniker Id="65ed687a-4a6d-489e-86f4-b6b3dd147cf2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

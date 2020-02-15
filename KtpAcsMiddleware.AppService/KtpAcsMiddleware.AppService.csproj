@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C99B9E21-E887-4B55-AD69-1BD34FB06F93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KtpAcsMiddleware.AppService</RootNamespace>
+    <AssemblyName>KtpAcsMiddleware.AppService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dto\AuthenticationSyncPagedDto.cs" />
+    <Compile Include="Dto\FaceDeviceWorkerDeletedPagedDto.cs" />
+    <Compile Include="Dto\FaceDeviceWorkerPagedDto.cs" />
+    <Compile Include="Dto\FaceLibraryUnsyncUserDto.cs" />
+    <Compile Include="Dto\IdentityDto.cs" />
+    <Compile Include="Dto\IdentitySynDto.cs" />
+    <Compile Include="Dto\OrgUserPagedDto.cs" />
+    <Compile Include="Dto\TeamSyncPagedDto.cs" />
+    <Compile Include="Dto\TeamWorkerDto.cs" />
+    <Compile Include="Dto\TeamWorkerPagedDto.cs" />
+    <Compile Include="Dto\WorkerAuthPagedDto.cs" />
+    <Compile Include="Dto\WorkerDailyWorkingTimeDto.cs" />
+    <Compile Include="Dto\WorkerIdentityAuthenticationDto.cs" />
+    <Compile Include="Dto\WorkerSyncPagedDto.cs" />
+    <Compile Include="FaceRecognition\FaceDeviceWorkerApiService.cs" />
+    <Compile Include="FaceRecognition\IFaceDeviceWorkerApiService.cs" />
+    <Compile Include="KtpLibrary\AuthenticationSyncService.cs" />
+    <Compile Include="KtpLibrary\IAuthenticationSyncService.cs" />
+    <Compile Include="FaceRecognition\FaceWorkerDeletedService.cs" />
+    <Compile Include="FaceRecognition\IFaceWorkerDeletedService.cs" />
+    <Compile Include="FileMaps\FileMapService.cs" />
+    <Compile Include="FileMaps\IFileMapService.cs" />
+    <Compile Include="FaceRecognition\FaceDeviceService.cs" />
+    <Compile Include="FaceRecognition\FaceDeviceWorkerService.cs" />
+    <Compile Include="FaceRecognition\IFaceDeviceService.cs" />
+    <Compile Include="FaceRecognition\IFaceDeviceWorkerService.cs" />
+    <Compile Include="FaceRecognition\IFaceAuthService.cs" />
+    <Compile Include="FaceRecognition\FaceAuthService.cs" />
+    <Compile Include="KtpLibrary\ITeamSyncService.cs" />
+    <Compile Include="KtpLibrary\TeamSyncService.cs" />
+    <Compile Include="Organizations\IOrgUserService.cs" />
+    <Compile Include="Organizations\OrgUserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceAuths\IServiceAuthsWorker.cs" />
+    <Compile Include="ServiceAuths\ServiceAuthsWorker.cs" />
+    <Compile Include="ServiceDevice\ServiceDeviceFaceWorker.cs" />
+    <Compile Include="ServiceDevice\IServiceDeviceFaceWorker.cs" />
+    <Compile Include="ServiceModel\AuthsDto.cs" />
+    <Compile Include="ServiceModel\HomeDeviceDto.cs" />
+    <Compile Include="ServiceModel\WorkerDto.cs" />
+    <Compile Include="ServiceWorkers\IWorkerService.cs" />
+    <Compile Include="ServiceWorkers\WorkerService.cs" />
+    <Compile Include="TeamWorkers\ITeamService.cs" />
+    <Compile Include="TeamWorkers\IWorkerQueryService.cs" />
+    <Compile Include="TeamWorkers\IWorkerIdentityService.cs" />
+    <Compile Include="TeamWorkers\IWorkerCommandService.cs" />
+    <Compile Include="KtpLibrary\IWorkerSyncService.cs" />
+    <Compile Include="TeamWorkers\TeamService.cs" />
+    <Compile Include="TeamWorkers\WorkerQueryService.cs" />
+    <Compile Include="TeamWorkers\WorkerIdentityService.cs" />
+    <Compile Include="TeamWorkers\WorkerCommandService.cs" />
+    <Compile Include="KtpLibrary\WorkerSyncService.cs" />
+    <Compile Include="WorkerAuths\IWorkerAuthService.cs" />
+    <Compile Include="WorkerAuths\WorkerAuthService.cs" />
+    <Compile Include="WorkerAuths\WorkerWorkingTimeService.cs" />
+    <Compile Include="_Dependency\ServiceFactory.cs" />
+    <Compile Include="_Dependency\ServiceModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KtpAcsMiddleware.Domain\KtpAcsMiddleware.Domain.csproj">
+      <Project>{72729835-f8f2-452a-be42-b870978a8865}</Project>
+      <Name>KtpAcsMiddleware.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.Infrastructure\KtpAcsMiddleware.Infrastructure.csproj">
+      <Project>{53A463E8-D6FF-413D-A95B-6089EF60003E}</Project>
+      <Name>KtpAcsMiddleware.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
