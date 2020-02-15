@@ -1,0 +1,171 @@
+﻿@model KtpAcsMiddleware.AppService.Dto.TeamWorkerDto
+@{
+    ViewBag.Title = "工人详细";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ Html.RenderPartial("WorkerIdentityAuthentication"); }
+<input type="hidden" id="workerId" name="workerId" value="@Model.WorkerId"/>
+<div class="modal-body form-horizontal">
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1">姓名</label>
+            <div class="col-sm-2">
+                <span class="form-control">@Model.WorkerName</span>
+            </div>
+            <label id="sexLabel" class="col-sm-1">性别</label>
+            <div class="col-sm-2">
+                <span class="form-control">@Model.SexText</span>
+            </div>
+            <label class="col-sm-1">生日</label>
+            <div class="col-sm-4">
+                <span class="form-control">@Model.BirthdayText</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1">身份证</label>
+            <div class="col-sm-5">
+                <span class="form-control">@Model.IdentityCode</span>
+            </div>
+            <label class="col-sm-1">民族</label>
+            <div class="col-sm-4">
+                <span class="form-control">@Model.NationText</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1" style="min-width: 72px;">发证机关</label>
+            <div class="col-sm-5" style="padding-left: 8px;">
+                <span class="form-control">@Model.IssuingAuthority</span>
+            </div>
+            <label class="col-sm-1">有效期</label>
+            <div class="col-sm-3" style="padding-right: 0; width: 16%;">
+                <span class="form-control">@Model.ActivateTimeText</span>
+            </div>
+            <div class="col-sm-3" style="padding-left: 3px; padding-right: 0; width: 16.5%;">
+                <span class="form-control">@Model.InvalidTimeText</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1">住址</label>
+            <div class="col-sm-5">
+                <textarea class="form-control" rows="3" disabled="disabled">@Model.AddressNow</textarea>
+            </div>
+            <label class="col-sm-1">籍贯</label>
+            <div class="col-sm-4">
+                <textarea class="form-control" rows="3" disabled="disabled">@Model.Address</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1">手机</label>
+            <div class="col-sm-5">
+                <span class="form-control">@Model.Mobile</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1">银行卡</label>
+            <div class="col-sm-5">
+                <span class="form-control">@Model.BankCardCode</span>
+            </div>
+            <label class="col-sm-1">所属行</label>
+            <div class="col-sm-4">
+                <span class="form-control">@Model.BankCardTypeText</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-1"></label>
+        <div class="col-sm-5">
+            <div class="form-group">
+                <div>
+                    <label>合同照片</label>
+                </div>
+                <img src="@Model.ContractPicFileName" alt="" style="height: 40.6px; width: 50px;">
+            </div>
+        </div>
+        <label class="col-sm-1"></label>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div>
+                    <label>身份证正面照</label>
+                </div>
+                <img src="@Model.IdentityPicFileName" alt="" style="height: 40.6px; width: 50px;">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-1"></label>
+        <div class="col-sm-5">
+            <div class="form-group" id="facePicContainer">
+                <div>
+                    <label>人脸识别照片</label>
+                </div>
+                <img src="@Model.FacePicFileName" alt="" style="height: 40.6px; width: 50px;">
+            </div>
+        </div>
+        <label class="col-sm-1"></label>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div>
+                    <label>身份证背面照</label>
+                </div>
+                <img src="@Model.IdentityBackPicFileName" alt="" style="height: 40.6px; width: 50px;">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1">进厂</label>
+            <div class="col-sm-5">
+                <span class="form-control">@Model.InTimeText</span>
+            </div>
+            <label class="col-sm-1">离场</label>
+            <div class="col-sm-4">
+                <span class="form-control">@Model.OutTimeText</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-1">所在班组</label>
+            <div class="col-sm-5">
+                <span class="form-control">@Model.TeamName</span>
+            </div>
+            <label class="col-sm-1">所属工种</label>
+            <div class="col-sm-4">
+                <span class="form-control">@Model.TeamWorkTypeName</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @{
+            if ((string.IsNullOrEmpty(Model.FacePicId) ||
+                 string.IsNullOrEmpty(Model.IdentityPicId) ||
+                 string.IsNullOrEmpty(Model.IdentityBackPicId)) && Model.WorkerIsDelete == false)
+            {
+                <div class="col-sm-offset-5 col-sm-10">
+                    <div class="btn-group">
+                        <button class="btn" id="identityAuthenticationButton">认证</button>
+                        <button class="btn" id="closeButton">关闭</button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-offset-5 col-sm-10">
+                    <button class="btn" id="closeButton">关闭</button>
+                </div>
+            }
+        }
+    </div>
+</div>
+<script src="~/Views/TeamWorker/WorkerIdentityAuthentication.js"></script>
+<script src="~/Views/TeamWorker/TeamWorkerDetail.js"></script>

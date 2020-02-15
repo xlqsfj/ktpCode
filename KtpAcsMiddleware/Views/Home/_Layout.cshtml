@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/AppFrontend/bower_components/zui/css/zui.css" rel="stylesheet"/>
+    <link href="~/AppFrontend/css/login.style.css" rel="stylesheet"/>
+    <script src="~/AppFrontend/bower_components/jquery/jquery.min.js"></script>
+    <script src="~/AppFrontend/bower_components/jquery/jquery.form.js"></script>
+    <script src="~/AppFrontend/bower_components/zui/js/zui.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.confirmation.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.prompt.js"></script>
+</head>
+<body>
+<h1>
+    <img style="height: 100px; width: auto" src="~/AppFrontend/images/logo-kaitaiping_20181101172431.png"/>
+</h1>
+<div class="contact">
+    @RenderBody()
+</div>
+<div class="copyright">
+    <p>版权所有 广东开太平信息科技有限责任公司</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+﻿<div id="5123ddbb39cc4d51bbe134a7f2aa1985Container" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="5123ddbb39cc4d51bbe134a7f2aa1985ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="5123ddbb39cc4d51bbe134a7f2aa1985ModalLabel">文件上传</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="form-group">
+                    <label for="5123ddbb39cc4d51bbe134a7f2aa1985File" class="col-sm-2">选择文件</label>
+                    <div class="col-md-3 col-sm-5">
+                        <input type="file" id="5123ddbb39cc4d51bbe134a7f2aa1985File" name="5123ddbb39cc4d51bbe134a7f2aa1985File"/>
+                    </div>
+                </div>
+                <div style="height: 3px; width: 100%;"></div>
+                <table id="5123ddbb39cc4d51bbe134a7f2aa1985List"></table>
+                <div id="5123ddbb39cc4d51bbe134a7f2aa1985ListPager"></div>
+            </div>
+            <div class="modal-footer">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" id="5123ddbb39cc4d51bbe134a7f2aa1985CancelButton">取消</a>
+                    <a class="btn btn-default" id="5123ddbb39cc4d51bbe134a7f2aa1985YesButton">确定</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() { angel.fileUploadListControl.initialize(); });
+    angel.fileUploadListControl = (function($) {
+        var fileList = [];
+        var $controlContainer = $("#5123ddbb39cc4d51bbe134a7f2aa1985Container");
+        var $newFile = $("#5123ddbb39cc4d51bbe134a7f2aa1985File");
+        var $grid = $("#5123ddbb39cc4d51bbe134a7f2aa1985List");
+        var gridPager = "#5123ddbb39cc4d51bbe134a7f2aa1985ListPager";
+        var $cancelButton = $("#5123ddbb39cc4d51bbe134a7f2aa1985CancelButton");
+        var $yesButton = $("#5123ddbb39cc4d51bbe134a7f2aa1985YesButton");
+
+        var yesButtonHandler = function() {};
+        var cancelButtonHandler = function() {};
+
+        var that = {};
+
+        var initializeGridWidth = function() {
+            var width = 568;
+            var searchTextParentWidth = $newFile.parent().width();
+            if (width < searchTextParentWidth) {
+                width = searchTextParentWidth;
+            }
+            $grid.setGridWidth(width);
+            $(".ui-jqgrid-htable", $controlContainer).width($(".ui-jqgrid-hdiv", $controlContainer).width() - 1);
+            $(".ui-jqgrid-btable", $controlContainer).width($(".ui-jqgrid-hdiv", $controlContainer).width());
+            $(".ui-jqgrid-title", $controlContainer).css("color", "white");
+        };
+
+        var initializeGrid = function() {
+            $grid.jqGrid({
+                datatype: 'local',
+                colNames: ["文件名", "大小", "操作"],
+                colModel: [
+                    { name: "fileName", index: "fileId", width: 100, sortable: false },
+                    { name: "length", index: "length", width: 60, sortable: false },
+                    { name: "select", index: "select", width: 60, sortable: false }
+                ],
+                caption: null,
+                hidegrid: false,
+                sortname: null,
+                sortorder: '',
+                shrinkToFit: true, //false
+                pager: gridPager,
+                rowNum: 10,
+                rowList: [10, 20, 30],
+                viewrecords: true,
+                rownumbers: false,
+                multiselect: false,
+                height: 300,
+                width: 700,
+                autowidth: true,
+                styleUI: 'Bootstrap'
+            });
+            var pager = { refresh: false, search: false, edit: false, add: false, del: false };
+            $grid.jqGrid("navGrid", gridPager, pager, { height: 200, reloadAfterSubmit: true });
+        };
+
+        var initGridData = function() {
+            $grid.clearGridData();
+            var fileListGridData = [];
+            for (var ifileListIndex = 0; ifileListIndex < fileList.length; ifileListIndex++) {
+                var file = fileList[ifileListIndex];
+                var removeButtonTmp =
+                    "<button type='button' name='5123ddbb39cc4d51bbe134a7f2aa1985RemoveButton' fileId='{fileId}' class='btn btn-sm'>删除</button>";
+                var removeButton = removeButtonTmp.replace("{fileId}", file.fileId);
+                fileListGridData.push({
+                    fileName: file.FileName,
+                    length: file.Length,
+                    select: removeButton
+                });
+                //todo removeButton点击事件未处理
+            }
+            $grid.setGridParam({ data: fileListGridData });
+            $grid.trigger("reloadGrid");
+        };
+
+        that.initialize = function() {
+            $cancelButton.click(function() {
+                cancelButtonHandler();
+                $controlContainer.modal("hide");
+            });
+
+            $yesButton.click(function() {
+                yesButtonHandler();
+                $controlContainer.modal("hide");
+            });
+
+            $newFile.fileupload({
+                url: '../UserControl/UploadFile',
+                //autoUpload: false,
+                //add: function(e, data) {
+                //    data.context = $uploadButton.click(function() {
+                //        $newFile.hide();
+                //        data.submit();
+                //    });
+                //},
+                done: function(e, data) {
+                    var result = $.parseJSON(data.result);
+                    if (result.result != 0 && result.result != '0') {
+                        angel.alert("上传错误:" + result.resultValue);
+                        return;
+                    }
+                    fileList.push(result.resultValue);
+                    initGridData();
+                    $("#modalf8810deee30544baaca953ed5c17a5fd").modal("hide");
+                },
+                fail: function(e, data) {
+                    angel.alert("上传错误,result=" + data.result + ",textStatus=" + data.textStatus);
+                },
+                progressall: function() {
+                    //设置上传进度事件的回调函数
+                    angel.alertsmNonClose('正在上传。。。');
+                }
+            });
+
+            $(window).bind("resize", function() { initializeGridWidth(); });
+            initializeGrid();
+        };
+
+        that.show = function(confirmHandler, cancelHandler) {
+            fileList = [];
+            if ($.isFunction(confirmHandler)) {
+                yesButtonHandler = confirmHandler;
+            }
+            if ($.isFunction(cancelHandler)) {
+                cancelButtonHandler = cancelHandler;
+            }
+
+            $controlContainer.modal({ backdrop: "static", keyboard: false });
+            $controlContainer.modal("show");
+            initGridData();
+            initializeGridWidth();
+        };
+
+        that.newFileList = function() {
+            return fileList;
+        };
+        return that;
+    })(jQuery);
+</script>

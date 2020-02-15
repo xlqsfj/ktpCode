@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "用户详细";
+    Layout = "~/Views/Shared/_LayoutNavigation.cshtml";
+}
+<script src="~/Views/User/UserDetail.js"></script>
+<form id="mainForm">
+    <input type="hidden" id="userId" name="userId" value="@ViewData["userId"]"/>
+    <input type="hidden" id="status" name="status" value="@ViewData["status"]"/>
+    <div id="orgUserContainer" class="form-horizontal">
+        <div id="orgUserErrorContainer" class="error"></div>
+        <div class="form-group">
+            <label for="account" class="col-sm-1" style="width: 6%;">登录名</label>
+            <div class="col-md-3 col-sm-5">
+                <input type="text" class="form-control" id="account" name="account" value="@ViewData["account"]">
+            </div>
+            <label for="name" class="col-sm-1">姓名</label>
+            <div class="col-md-3 col-sm-5">
+                <input type="text" class="form-control" id="name" name="name" value="@ViewData["name"]">
+            </div>
+            <label for="code" class="col-sm-1">编号</label>
+            <div class="col-md-3 col-sm-5">
+                <input type="text" class="form-control" id="code" name="code" value="@ViewData["code"]">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mail" class="col-sm-1" style="width: 6%;">邮箱</label>
+            <div class="col-md-3 col-sm-5">
+                <input type="text" class="form-control" id="mail" name="mail" value="@ViewData["mail"]">
+            </div>
+            <label for="mobile" class="col-sm-1">手机</label>
+            <div class="col-md-3 col-sm-5">
+                <input type="text" class="form-control" id="mobile" name="mobile" value="@ViewData["mobile"]">
+            </div>
+            <label for="birthday" class="col-sm-1">生日</label>
+            <div class="col-md-3 col-sm-5">
+                <input type="text" class="form-control" id="birthday" name="birthday" value="@ViewData["birthday"]">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="statusName" class="col-sm-1" style="width: 6%;">状态</label>
+            <div class="col-md-3 col-sm-5">
+                <input type="text" class="form-control" id="statusName" name="statusName" value="@ViewData["statusName"]" readonly="readonly">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-10">
+                <div class="btn-group">
+                    <input class="btn" type="button" id="cancleButton" value="注销"/>
+                    <button class="btn" id="saveButton">保存</button>
+                    <a href="UserList" class="btn">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

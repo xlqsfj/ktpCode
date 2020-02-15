@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>用户登录错误</title>
+</head>
+<body>
+<hgroup>
+    <h1>错误。</h1>
+    <h2>
+        获取用户信息错误，请先登录:<a href="~/Login.htm">Login</a>。
+    </h2>
+    <p>错误信息: @ViewData["loginErrorMsg"]</p>
+</hgroup>
+</body>
+</html>

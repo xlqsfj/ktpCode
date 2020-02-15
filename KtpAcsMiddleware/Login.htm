@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>用户登录</title>
+    <link href="AppFrontend/css/login.style.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>
+    <img src="AppFrontend/images/logo-kaitaiping.png"/>
+</h1>
+<div class="contact">
+    <h2>开太平</h2>
+    <p>Asc中间件 用户登录</p>
+    <form>
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 70px;">
+                    <h3>
+                        <span>用户名：</span>
+                    </h3>
+                </td>
+                <td>
+                    <input type="text" class="user active" value="Login Name" onfocus=" this.value = ''; " onblur=" if (this.value == '') { this.value = 'Login Name'; } ">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>
+                        <span>密 码：</span>
+                    </h3>
+                </td>
+                <td>
+                    <input type="password" class="password active" value="Password" onfocus=" this.value = ''; " onblur=" if (this.value == '') { this.value = 'Password'; } ">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="登录"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div class="copyright">
+    <p>
+        版权所有 广东开太平信息科技有限责任公司
+    </p>
+</div>
+</body>
+</html>

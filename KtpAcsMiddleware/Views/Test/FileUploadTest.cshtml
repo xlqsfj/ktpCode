@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "FileUpload";
+    Layout = "~/Views/Shared/_LayoutNavigation.cshtml";
+}
+
+@{ Html.RenderPartial("../UserControl/FileUpload"); }
+@{ Html.RenderPartial("../UserControl/CanvasUpload"); }
+@{ Html.RenderPartial("../UserControl/FileUploadList"); }
+<h2>FileUpload</h2>
+<a href="#" id="testButton"><i class="icon-upload"></i> upload</a>
+<img src="" width="100px" height="100px" class="img-rounded" alt="+" id="testImg">
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#testButton').click(function() {
+            //angel.fileUploadControl.imgShow(
+            //    function() {
+            //        var newItem = angel.fileUploadControl.newFile();
+            //        angel.alert(newItem.Id + ',' + newItem.PhysicalFileName);
+            //        $('#testImg').attr('src', newItem.PhysicalFileName);
+            //    },
+            //    true);
+            //angel.canvasUploadControl.show(function() {
+            //    var newItem = angel.canvasUploadControl.newFile();
+            //    angel.alert(newItem.Id);
+            //});
+            angel.fileUploadListControl.show(
+                function() {
+                    var newFileList = angel.fileUploadListControl.newFileList();
+                    angel.alert(newFileList.length);
+                    $('#testImg').attr('src', newFileList[0].PhysicalFileName);
+                },
+                true);
+        });
+    });
+</script>

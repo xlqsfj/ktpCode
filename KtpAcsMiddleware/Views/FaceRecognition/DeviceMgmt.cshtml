@@ -1,0 +1,58 @@
+﻿<div id="deviceMgmtContainer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deviceMgmtModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 300px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">关闭</span>
+                </button>
+                <h4 class="modal-title" id="deviceMgmtModalLabel">设备信息</h4>
+            </div>
+            <div class="modal-body">
+                <div id="deviceMgmtErrorContainer" class="error"></div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label for="deviceCode">编号(设备号)</label>
+                            <input id="deviceCode" name="deviceCode" class="form-control" placeholder="设备号"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label for="ipAddress">IP地址</label>
+                            <input id="ipAddress" name="ipAddress" class="form-control" placeholder="IP地址"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="isCheckIn" id="isCheckInLabel">是入场方向</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="isCheckIn" value="1" id="isCheckIn"> 是
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="isCheckIn" value="0" id="isCheckInFalse"> 否
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label for="deviceDescription">描述</label>
+                            <textarea class="form-control" id="deviceDescription" name="deviceDescription" placeholder="描述"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default" id="deviceMgmtCancelButton">取消</a>
+                <a class="btn btn-primary" id="deviceMgmtSubmitButton">确认</a>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="deviceMgmtId" name="deviceMgmtId"/>
+<script src="~/Views/FaceRecognition/DeviceMgmt.js"></script>

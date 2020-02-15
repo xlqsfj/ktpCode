@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = ViewBag.Title;
+    Layout = "_LayoutNavigation.cshtml";
+}
+<link href="~/AppFrontend/bower_components/ztree/zTreeStyle.css" rel="stylesheet"/>
+<script src="~/AppFrontend/bower_components/ztree/jquery.ztree.core.min.js"> </script>
+<script src="~/AppFrontend/bower_components/ztree/jquery.ztree.exhide.js"> </script>
+<style>
+    div {
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box
+    }
+</style>
+<nav class="menu col-md-2" data-ride="menu" style="padding-right: 2px;">
+    <ul class="tree tree-menu" data-ride="tree">
+        @RenderSection("leftmainmenuul")
+    </ul>
+</nav>
+<div class="col-md-9" style="padding-left: 0">
+    @RenderBody()
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var reSetMenu = function() {
+            var height = $(window).height() * 0.8;
+            $('.tree-menu').css('height', height + 'px').css('overflow', 'auto');
+        };
+        $(window).bind("resize", function() { reSetMenu(); });
+        reSetMenu();
+    });
+</script>

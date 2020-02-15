@@ -1,0 +1,83 @@
+﻿<div id="faa91b310ecc46768bca09bd7f2eea91Container" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="teamWorkerMgmtModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">工人认证信息</h4>
+            </div>
+            <div class="modal-body">
+                <div id="faa91b310ecc46768bca09bd7f2eea91ErrorContainer" class="alert alert-danger" style="display: none">
+                    <i class="icon-remove-sign"></i>
+                    <div class="content">
+                        <h4>信息输入错误!</h4>
+                        <p id="faa91b310ecc46768bca09bd7f2eea91ErrorMsg"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="workerNamefaa91b310ecc46768bca09bd7f2eea91">姓名</label>
+                            <input id="workerNamefaa91b310ecc46768bca09bd7f2eea91" name="workerNamefaa91b310ecc46768bca09bd7f2eea91" class="form-control" placeholder="工人姓名" readonly="readonly"/>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="identityCodefaa91b310ecc46768bca09bd7f2eea91">身份证</label>
+                            <input id="identityCodefaa91b310ecc46768bca09bd7f2eea91" name="identityCodefaa91b310ecc46768bca09bd7f2eea91" class="form-control" placeholder="身份证号码" readonly="readonly"/>
+                            <input type="hidden" id="identityIdfaa91b310ecc46768bca09bd7f2eea91" name="identityIdfaa91b310ecc46768bca09bd7f2eea91"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div>
+                                <label for="facePicfaa91b310ecc46768bca09bd7f2eea91">人脸识别照片</label>
+                                <a href="#" id="facePicButtonfaa91b310ecc46768bca09bd7f2eea91">
+                                    <i class="icon-camera"></i>
+                                </a>
+                            </div>
+                            <img src="" id="facePicfaa91b310ecc46768bca09bd7f2eea91" alt="" style="height: 40.6px; width: 50px;">
+                            <input type="hidden" id="facePicIdfaa91b310ecc46768bca09bd7f2eea91" name="facePicIdfaa91b310ecc46768bca09bd7f2eea91"/>
+                            <input type="hidden" id="facePicFileNamefaa91b310ecc46768bca09bd7f2eea91" name="facePicFileNamefaa91b310ecc46768bca09bd7f2eea91"/>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div>
+                                <label for="identityPicfaa91b310ecc46768bca09bd7f2eea91">身份证正面照</label>
+                                <a href="#" id="identityPicButtonfaa91b310ecc46768bca09bd7f2eea91">
+                                    <i class="icon-camera"></i>
+                                </a>
+                            </div>
+                            <img src="" id="identityPicfaa91b310ecc46768bca09bd7f2eea91" alt="" style="height: 40.6px; width: 50px;">
+                            <input type="hidden" id="identityPicIdfaa91b310ecc46768bca09bd7f2eea91" name="identityPicIdfaa91b310ecc46768bca09bd7f2eea91"/>
+                            <input type="hidden" id="identityPicFileNamefaa91b310ecc46768bca09bd7f2eea91" name="identityPicFileNamefaa91b310ecc46768bca09bd7f2eea91"/>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div>
+                                <label for="identityBackPicfaa91b310ecc46768bca09bd7f2eea91">身份证背面照</label>
+                                <a href="#" id="identityBackPicButtonfaa91b310ecc46768bca09bd7f2eea91">
+                                    <i class="icon-camera"></i>
+                                </a>
+                            </div>
+                            <img src="" id="identityBackPicfaa91b310ecc46768bca09bd7f2eea91" alt="" style="height: 40.6px; width: 50px;">
+                            <input type="hidden" id="identityBackPicIdfaa91b310ecc46768bca09bd7f2eea91" name="identityBackPicIdfaa91b310ecc46768bca09bd7f2eea91"/>
+                            <input type="hidden" id="identityBackPicFileNamefaa91b310ecc46768bca09bd7f2eea91" name="identityBackPicFileNamefaa91b310ecc46768bca09bd7f2eea91"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default" id="faa91b310ecc46768bca09bd7f2eea91CancelButton">取消</a>
+                <a class="btn btn-primary" id="faa91b310ecc46768bca09bd7f2eea91SubmitButton">确认</a>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="workerIdfaa91b310ecc46768bca09bd7f2eea91" name="workerIdfaa91b310ecc46768bca09bd7f2eea91"/>

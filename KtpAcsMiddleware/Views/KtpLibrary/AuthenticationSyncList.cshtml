@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "TeamSyncList";
+    Layout = "~/Views/Shared/_LayoutTreeMenu.cshtml";
+}
+@section leftmainmenuul{
+    <li>
+        <a href="#">
+            <i class="icon icon-th"></i>
+            <label id="activeMenuulName" class="label">@ViewBag.activeMenuulName</label>
+        </a>
+    </li>
+    @{
+        foreach (var device in ViewBag.devices)
+        {
+            if (device.Id == ViewBag.deviceId)
+            {
+                <li class="active">
+                    <a href="#" itemid="@device.Id" name="deviceCode">@device.Code</a>
+                </li>
+                continue;
+            }
+            <li>
+                <a href="#" itemid="@device.Id" name="deviceCode">@device.Code</a>
+            </li>
+        }
+    }
+}
+<div class="input-group" style="margin-bottom: 3px;">
+    <div class="input-control has-icon-left has-icon-right">
+        <input id="searchText" class="form-control" type="search" placeholder="关键字" style="width: 90%">
+        <label for="searchText" class="input-control-icon-left search-icon">
+            <i class="icon icon-search"></i>
+        </label>
+        <select class="form-control" id="syncState" style="padding-left: 0; padding-right: 0; width: 10%;">
+            <option value="-1">所有</option>
+            @{
+                foreach (var syncState in ViewBag.syncStates)
+                {
+                    <option value="@syncState.Key">@syncState.Value</option>
+                }
+            }
+        </select>
+    </div>
+    <span class="input-group-btn">
+        <button type="button" id="searchButton" class="btn btn-primary">搜索</button>
+    </span>
+</div>
+<div class="jqGrid_wrapper">
+    <table id="list"></table>
+    <div id="listPager"></div>
+</div>
+<input type="hidden" id="deviceId" name="deviceId" value="@ViewBag.deviceId"/>
+<script src="~/Views/KtpLibrary/AuthenticationSyncList.js"></script>

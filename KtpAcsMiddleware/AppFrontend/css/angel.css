@@ -1,0 +1,57 @@
+﻿/*Error*/
+
+.error {
+    background-color: #ffe5e0;
+    background-image: url(../images/cross_circle.png);
+    background-position: 10px 5px;
+    background-repeat: no-repeat;
+    /*border: 1px solid #e38b81;*/
+    clear: both;
+    color: #e75033;
+    display: none;
+    height: auto !important;
+    line-height: 1.3;
+    margin-bottom: 3px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    padding: 5px 10px;
+    padding-bottom: 0;
+    text-indent: 1.2em;
+}
+
+.error {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.error li {
+    display: list-item;
+    list-style: none;
+    text-align: -webkit-match-parent;
+}
+
+input.highlight, textarea.highlight, select.highlight {
+    border-color: red;
+    border-style: dotted;
+    border-width: 1px;
+}
+
+label.highlight { color: red }
+
+td.highlight { background-color: #fad5cf; }
+
+/*Extension(zui or bootstrap)*/
+
+hr {
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.hidden { display: none }
+
+.left-main-menu-classid { }
+
+.jqGrid_wrapper { }

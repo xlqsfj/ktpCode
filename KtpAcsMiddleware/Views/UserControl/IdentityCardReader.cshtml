@@ -1,0 +1,165 @@
+﻿<div id="33605eaecf4d43f3b69ee0fe63755728Container" style="z-index: 2050" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="33605eaecf4d43f3b69ee0fe63755728ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 390px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="33605eaecf4d43f3b69ee0fe63755728ModalLabel">读取身份证信息</h4>
+            </div>
+            <div class="modal-body form-horizontal" style="padding-top: 0">
+                <object classid="clsid:46E4B248-8A41-45C5-B896-738ED44C1587" id="SynCardOcx33605eaecf4d43f3b69ee0fe63755728" codeBase="SynCardOcx.CAB#version=1,0,0,1" width="0" height="0"></object>
+                <div class="form-group">
+                    <div id="33605eaecf4d43f3b69ee0fe63755728ErrorContainer" class="alert alert-danger" style="display: none">
+                        <i class="icon-remove-sign"></i>
+                        <div class="content">
+                            <h4>身份证信息为空!</h4>
+                            <p>还没有取得身份证信息,前点击读取按钮获取</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-11">
+                        <form method="POST" action="--WEBBOT-SELF--">
+                            <textarea rows="17" id="33605eaecf4d43f3b69ee0fe63755728CardInfo" name="33605eaecf4d43f3b69ee0fe63755728CardInfo" style="width: 100%" readonly="readonly"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" id="33605eaecf4d43f3b69ee0fe63755728CancelButton">取消</a>
+                    <a class="btn btn-default" id="33605eaecf4d43f3b69ee0fe63755728ReadCard" style="display: none">读卡</a>
+                    <a class="btn btn-default" id="33605eaecf4d43f3b69ee0fe63755728YesButton">确定</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script language="JavaScript1.2">
+    $(document).ready(function () {
+        angel.identityCardReaderrControl.initialize();
+    });
+    angel.identityCardReaderrControl = (function ($) {
+        var identityCard = {};
+        var $controlContainer = $("#33605eaecf4d43f3b69ee0fe63755728Container");
+        var $erroContainer = $("#33605eaecf4d43f3b69ee0fe63755728ErrorContainer");
+        //var $synCardOcx = $('#33605eaecf4d43f3b69ee0fe63755728SynCardOcx');
+        var $cardInfo = $('#33605eaecf4d43f3b69ee0fe63755728CardInfo');
+        var $readCardButton = $('#33605eaecf4d43f3b69ee0fe63755728ReadCard');
+        var $cancelButton = $("#33605eaecf4d43f3b69ee0fe63755728CancelButton");
+        var $yesButton = $("#33605eaecf4d43f3b69ee0fe63755728YesButton");
+
+        var yesButtonHandler = function () { };
+        var cancelButtonHandler = function () { };
+
+        var that = {};
+
+        that.initialize = function () {
+            $cancelButton.click(function () {
+                cancelButtonHandler();
+                $controlContainer.modal("hide");
+            });
+
+            $yesButton.click(function () {
+                if (!identityCard.Code) {
+                    $erroContainer.show();
+                    return;
+                } else {
+                    $erroContainer.hide();
+                }
+                yesButtonHandler();
+                $controlContainer.modal("hide");
+            });
+            $readCardButton.click(function () {
+                $cardInfo.val("");
+                identityCard = {};
+                //	SynCardOcx1.SetPhotoType(4);
+                var readCardMsg = SynCardOcx33605eaecf4d43f3b69ee0fe63755728.ReadCardMsg();
+                if (readCardMsg == 0) {
+                    var dto = {
+                        CardNo: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.CardNo,
+                        NameA: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.NameA,
+                        Sex: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.Sex,
+                        Nation: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.Nation,
+                        Born: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.Born,
+                        Address: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.Address,
+                        Police: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.Police,
+                        UserLifeB: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.UserLifeB,
+                        UserLifeE: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.UserLifeE
+                        //,Base64Photo: SynCardOcx33605eaecf4d43f3b69ee0fe63755728.Base64Photo
+                    };
+                    //$cardInfo.val($cardInfo.val() + "照片文件名:" + SynCardOcx33605eaecf4d43f3b69ee0fe63755728.PhotoName + "\r\n");
+                    $.getJSON('../UserControl/GetIdentity?dto=' + encodeURIComponent(JSON.stringify(dto)), function (result) {
+                        if (result.result != 0) {
+                            $cardInfo.val($cardInfo.val() + "获取信息错误:" + result.resultValue);
+                            return;
+                        }
+                        identityCard = result.resultValue;
+                        $cardInfo.val($cardInfo.val() + "读卡成功\r\n");
+                        $cardInfo.val($cardInfo.val() + "姓名:" + identityCard.Name + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "性别:" + identityCard.SexText + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "民族:" + identityCard.NationText + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "出生日期:" + identityCard.BirthdayText + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "地址:" + identityCard.Address + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "身份证号:" + identityCard.Code + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "有效期开始:" + identityCard.ActivateTimeText + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "有效期结束:" + identityCard.InvalidTimeText + "\r\n");
+                        $cardInfo.val($cardInfo.val() + "发证机关:" + identityCard.IssuingAuthority + "\r\n");
+                    });
+                }
+                else {
+                    $cardInfo.val($cardInfo.val() + "没有找到身份证\r\n");
+                }
+            });
+        };
+
+        that.show = function (confirmHandler, cancelHandler) {
+            identityCard = {};
+            $erroContainer.hide();
+            if ($.isFunction(confirmHandler)) {
+                yesButtonHandler = confirmHandler;
+            }
+            if ($.isFunction(cancelHandler)) {
+                cancelButtonHandler = cancelHandler;
+            }
+            $controlContainer.modal({ backdrop: "static", keyboard: false });
+            $controlContainer.modal("show");
+
+            try {
+                $readCardButton.hide();
+                $cardInfo.val("");
+                //获取读卡器
+                var findReaderMsg;
+                findReaderMsg = SynCardOcx33605eaecf4d43f3b69ee0fe63755728.FindReader();
+                if (findReaderMsg > 0) {
+                    if (findReaderMsg > 1000) {
+                        findReaderMsg = "读卡器连接在USB " + findReaderMsg;
+                    }
+                    else {
+                        findReaderMsg = "读卡器连接在COM " + findReaderMsg;
+                    }
+
+                    SynCardOcx33605eaecf4d43f3b69ee0fe63755728.SetPhotoPath(1, '');
+                    SynCardOcx33605eaecf4d43f3b69ee0fe63755728.SetPhotoType(2);//Base64
+                    SynCardOcx33605eaecf4d43f3b69ee0fe63755728.SetPhotoName(3);
+                    $cardInfo.val(findReaderMsg + "\r\n");
+                    $readCardButton.show();
+                }
+                else {
+                    $cardInfo.val("没有找到读卡器");
+                }
+            }
+            catch (err) {
+                $cardInfo.val("没有找到读卡器");
+            }
+        };
+
+        that.newCard = function () {
+            return identityCard;
+        };
+        return that;
+    })(jQuery);
+
+</script>

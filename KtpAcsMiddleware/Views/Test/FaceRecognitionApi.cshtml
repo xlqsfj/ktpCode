@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "FileUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AjaxTest</h2>
+<a href="#" id="testButton" class="btn btn-default">post</a>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#testButton').click(function() {
+            //var postData = {
+            //    name: 'aaa',
+            //    idNumber: 'aaa',
+            //    nation: 'aaa',
+            //    address: 'aaa',
+            //    avatar: 'aaa',
+            //    sex: 1,
+            //    type: 2,
+            //    result: 3,
+            //    deviceNumber: 'aaa',
+            //    authTimeStamp: '2423423543',
+            //    idcardImage: 'aaa'
+            //};
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost/FaceDeviceWorkerApi/PutFlagEnable',
+                data: { id: 1 },
+                dataType: 'json',
+                success: function(result) {
+                    angel.alert('complete');
+                }
+            });
+        });
+    });
+</script>

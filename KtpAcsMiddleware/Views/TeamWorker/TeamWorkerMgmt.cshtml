@@ -1,0 +1,206 @@
+﻿<div id="teamWorkerMgmtContainer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="teamWorkerMgmtModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 60%">
+        <div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">工人信息</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div id="teamWorkerMgmtErrorContainer" class="error"></div>
+                <div class="col-md-11" style="display: none; margin-left: 2%" id="identityCodeCreditGradeWarning">
+                    <div class="alert alert-warning with-icon">
+                        <i class="icon-frown"></i>
+                        <div class="content">
+                            <strong>注意!</strong> 该身份证号信用分过低。分数:<span id="identityCodeCreditGrade"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="workerName" class="col-sm-1">姓名</label>
+                        <div class="col-sm-2" style="padding-right: 0">
+                            <input id="workerName" name="workerName" class="form-control" placeholder="工人姓名"/>
+                        </div>
+                        <label for="sexMan" id="sexLabel" class="col-sm-1">性别</label>
+                        <div class="col-sm-2" style="padding-right: 0">
+                            <div>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="@ViewBag.workerSexMan" id="sexMan"> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="@ViewBag.workerSexLady" id="sexLady"> 女
+                                </label>
+                            </div>
+                        </div>
+                        <label for="birthday" class="col-sm-1">生日</label>
+                        <div class="col-sm-4">
+                            <input id="birthday" name="birthday" class="form-control" placeholder="出生日期"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="identityCode" class="col-sm-1">身份证</label>
+                        <div class="col-sm-5">
+                            <input id="identityCode" name="identityCode" class="form-control" placeholder="身份证号码"/>
+                            <input type="hidden" id="identityId" name="identityId"/>
+                        </div>
+                        <label for="nation" class="col-sm-1">民族</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="nation" name="nation">
+                                <option value="">选择</option>
+                                @{
+                                    foreach (var nation in ViewBag.nations)
+                                    {
+                                        <option value="@nation.Key">@nation.Value</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="issuingAuthority" class="col-sm-1" style="min-width: 72px;">机关</label>
+                        <div class="col-sm-5" style="padding-left: 8px;">
+                            <input id="issuingAuthority" name="issuingAuthority" class="form-control" placeholder="身份证发证机关"/>
+                        </div>
+                        <label for="activateTime" class="col-sm-1">有效期</label>
+                        <div class="col-sm-3" style="padding-right: 0; width: 16%;">
+                            <input id="activateTime" name="activateTime" class="form-control" placeholder="有效时间(开始)"/>
+                        </div>
+                        <div class="col-sm-3" style="padding-left: 3px; padding-right: 0; width: 17%;">
+                            <input id="invalidTime" name="invalidTime" class="form-control" placeholder="有效时间(结束)"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="addressNow" class="col-sm-1">住址</label>
+                        <div class="col-sm-5">
+                            <textarea class="form-control" id="addressNow" name="addressNow" rows="3" placeholder="现在居住的地址"></textarea>
+                        </div>
+                        <label for="address" class="col-sm-1">籍贯</label>
+                        <div class="col-sm-4">
+                            <textarea class="form-control" id="address" name="address" rows="3" placeholder="身份证上的地址"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="mobile" class="col-sm-1">手机</label>
+                        <div class="col-sm-5">
+                            <input id="mobile" name="mobile" class="form-control" placeholder="手机号码"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="bankCardCode" class="col-sm-1">银行卡</label>
+                        <div class="col-sm-5">
+                            <input id="bankCardCode" name="bankCardCode" class="form-control" placeholder="银行卡号"/>
+                        </div>
+                        <label for="bankCardTypeId" class="col-sm-1">所属行</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="bankCardTypeId" name="bankCardTypeId">
+                                <option value="">所属银行</option>
+                                @{
+                                    foreach (var bankCardType in ViewBag.bankCardTypes)
+                                    {
+                                        <option value="@bankCardType.Key">@bankCardType.Value</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-1"></label>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <div>
+                                <label for="contractPic">合同照片</label>
+                                <a href="#" id="contractPicButton">
+                                    <i class="icon-upload"></i>
+                                </a>
+                            </div>
+                            <img src="" id="contractPic" alt="" style="height: 40.6px; width: 50px;">
+                            <input type="hidden" id="contractPicId" name="contractPicId"/>
+                            <input type="hidden" id="contractPicFileName" name="contractPicFileName"/>
+                        </div>
+                    </div>
+                    <label class="col-sm-1"></label>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div>
+                                <label for="identityPic">身份证正面照</label>
+                                <a href="#" id="identityPicButton" style="display: none">
+                                    <i class="icon-camera"></i>
+                                </a>
+                            </div>
+                            <img src="" id="identityPic" alt="" style="height: 40.6px; width: 50px;">
+                            <input type="hidden" id="identityPicId" name="identityPicId"/>
+                            <input type="hidden" id="identityPicFileName" name="identityPicFileName"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-1"></label>
+                    <div class="col-sm-5">
+                        <div class="form-group" id="facePicContainer">
+                            <div>
+                                <label for="facePic">人脸识别照片</label>
+                                <a href="#" id="facePicButton" style="display: none">
+                                    <i class="icon-camera"></i>
+                                </a>
+                            </div>
+                            <img src="" id="facePic" alt="" style="height: 40.6px; width: 50px;">
+                            <input type="hidden" id="facePicId" name="facePicId"/>
+                            <input type="hidden" id="facePicFileName" name="facePicFileName"/>
+                        </div>
+                    </div>
+                    <label class="col-sm-1"></label>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div>
+                                <label for="identityBackPic">身份证背面照</label>
+                                <a href="#" id="identityBackPicButton" style="display: none">
+                                    <i class="icon-camera"></i>
+                                </a>
+                            </div>
+                            <img src="" id="identityBackPic" alt="" style="height: 40.6px; width: 50px;">
+                            <input type="hidden" id="identityBackPicId" name="identityBackPicId"/>
+                            <input type="hidden" id="identityBackPicFileName" name="identityBackPicFileName"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inTime" class="col-sm-1">进厂</label>
+                        <div class="col-sm-5">
+                            <input id="inTime" name="inTime" class="form-control" placeholder="进厂时间" disabled="disabled"/>
+                        </div>
+                        <label for="outTime" class="col-sm-1">离场</label>
+                        <div class="col-sm-4">
+                            <input id="outTime" name="outTime" class="form-control" placeholder="离场时间" disabled="disabled"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-info" id="identityButton">读取身份证</a>
+                <a class="btn btn-default" id="teamWorkerMgmtCancelButton">取消</a>
+                <a class="btn btn-primary" id="teamWorkerMgmtSubmitButton">确认</a>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="teamWorkerId" name="teamWorkerId"/>
+<input type="hidden" id="teamWorkerMgmtTeamId" name="teamWorkerMgmtTeamId"/>
+<input type="hidden" id="workerId" name="workerId"/>
+<input type="hidden" id="teamWorkerStatus" name="teamWorkerStatus"/>
+<input type="hidden" id="identityFaceSim" name="identityFaceSim"/>
+<input type="hidden" id="createType" name="createType"/>

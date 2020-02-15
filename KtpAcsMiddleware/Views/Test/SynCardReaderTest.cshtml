@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "IdentityCardReader";
+    Layout = "~/Views/Shared/_LayoutNavigation.cshtml";
+}
+
+@{ Html.RenderPartial("../UserControl/IdentityCardReader"); }
+<h2>IdentityCardReader</h2>
+<a href="#" id="testButton">read</a>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#testButton').click(function() {
+            angel.identityCardReaderrControl.show(
+                function() {
+                    var newItem = angel.identityCardReaderrControl.newCard();
+                    angel.alert(newItem.Code + ',' + newItem.Name);
+                });
+        });
+    });
+</script>

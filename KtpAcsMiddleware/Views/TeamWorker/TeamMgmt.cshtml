@@ -1,0 +1,52 @@
+﻿<div id="teamMgmtContainer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="teamWorkerMgmtModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 300px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">关闭</span>
+                </button>
+                <h4 class="modal-title">班组信息</h4>
+            </div>
+            <div class="modal-body">
+                <div id="teamMgmtErrorContainer" class="error"></div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label for="teamName">名称</label>
+                            <input id="teamName" name="teamName" class="form-control" placeholder="名称"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label for="teamWorkTypeId">工种</label>
+                            <select class="form-control" id="teamWorkTypeId" name="teamWorkTypeId">
+                                <option value="">所属工种</option>
+                                @{
+                                    foreach (var teamWorkType in ViewBag.teamWorkTypes)
+                                    {
+                                        <option value="@teamWorkType.Id">@teamWorkType.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <label for="teamDescription">描述</label>
+                            <textarea class="form-control" id="teamDescription" name="teamDescription" placeholder="描述"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default" id="teamMgmtCancelButton">取消</a>
+                <a class="btn btn-primary" id="teamMgmtSubmitButton">确认</a>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="teamMgmtTeamId" name="teamMgmtTeamId"/>

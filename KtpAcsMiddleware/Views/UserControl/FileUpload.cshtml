@@ -1,0 +1,85 @@
+﻿<div id="8b48b89525c6446aa6552159aaae6417Container" style="z-index: 2050" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="8b48b89525c6446aa6552159aaae6417ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 300px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="8b48b89525c6446aa6552159aaae6417ModalLabel">文件上传</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-3 col-sm-5">
+                        <input type="file" id="8b48b89525c6446aa6552159aaae6417File" name="8b48b89525c6446aa6552159aaae6417File"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() { angel.fileUploadControl.initialize(); });
+    angel.fileUploadControl = (function($) {
+        var file = {};
+        var isHideAlert = true;
+        var $controlContainer = $("#8b48b89525c6446aa6552159aaae6417Container");
+        var $newFile = $("#8b48b89525c6446aa6552159aaae6417File");
+
+        var yesButtonHandler = function() {};
+
+        var that = {};
+
+        that.initialize = function() {
+            $newFile.fileupload({
+                url: '../UserControl/UploadFile',
+                done: function(e, data) {
+                    var result = $.parseJSON(data.result);
+                    if (result.result != 0 && result.result != '0') {
+                        angel.alert("上传错误:" + result.resultValue);
+                        return;
+                    }
+                    file = result.resultValue;
+                    if (isHideAlert) {
+                        $("#modalf8810deee30544baaca953ed5c17a5fd").modal("hide");
+                    }
+                    $controlContainer.modal("hide");
+                    yesButtonHandler();
+                },
+                fail: function(e, data) {
+                    angel.alert("上传错误,result=" + data.result + ",textStatus=" + data.textStatus);
+                },
+                progressall: function() {
+                    //设置上传进度事件的回调函数
+                    angel.alertsmNonClose('正在上传。。。');
+                }
+            });
+        };
+
+        that.show = function(confirmHandler, isAlertMsg, accept) {
+            $newFile.val('').removeAttr('accept');
+            file = {};
+            isHideAlert = true;
+            if ($.isFunction(confirmHandler)) {
+                yesButtonHandler = confirmHandler;
+            }
+            if (isAlertMsg) {
+                isHideAlert = false;
+            }
+            if (accept) {
+                $newFile.attr('accept', accept);
+            }
+            $controlContainer.modal({ backdrop: "static", keyboard: false });
+            $controlContainer.modal("show");
+        };
+
+        that.imgShow = function(confirmHandler, isAlertMsg) {
+            angel.fileUploadControl.show(confirmHandler, isAlertMsg, 'image/png,image/gif,image/jpeg');
+        };
+
+        that.newFile = function() {
+            return file;
+        };
+        return that;
+    })(jQuery);
+</script>

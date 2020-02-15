@@ -1,0 +1,58 @@
+﻿@using KtpAcsMiddleware.Infrastructure.Utilities
+@model KtpAcsMiddleware.Domain.Data.OrgUser
+@{
+    ViewBag.Title = "用户信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form id="mainForm">
+    <input type="hidden" id="workerId" name="workerId" value="@Model.Id"/>
+    <div id="orgUserContainer" class="form-horizontal">
+        <div id="orgUserErrorContainer" class="error"></div>
+        <div class="form-group">
+            <label class="col-sm-1" style="width: 6%;">登录名</label>
+            <div class="col-md-3 col-sm-5">
+                <span class="form-control">@Model.Account</span>
+            </div>
+            <label class="col-sm-1">姓名</label>
+            <div class="col-md-3 col-sm-5">
+                <span class="form-control">@Model.Name</span>
+            </div>
+            <label class="col-sm-1">编号</label>
+            <div class="col-md-3 col-sm-5">
+                <span class="form-control">@Model.Code</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1" style="width: 6%;">邮箱</label>
+            <div class="col-md-3 col-sm-5">
+                <span class="form-control">@Model.Mail</span>
+            </div>
+            <label class="col-sm-1">手机</label>
+            <div class="col-md-3 col-sm-5">
+                <span class="form-control">@Model.Mobile</span>
+            </div>
+            <label class="col-sm-1">生日</label>
+            <div class="col-md-3 col-sm-5">
+                <span class="form-control">@FormatHelper.GetIsoDateString(Model.Birthday)</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1" style="width: 6%;">状态</label>
+            <div class="col-md-3 col-sm-5">
+                <span class="form-control">@ViewBag.Status</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-10">
+                <button class="btn" id="closeButton">关闭</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#closeButton').click(function() {
+            window.close();
+        });
+    });
+</script>

@@ -1,0 +1,191 @@
+﻿<div id="00d1a3a656d549e1ae50674f3c72a984Container" style="z-index: 2050" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="00d1a3a656d549e1ae50674f3c72a984ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 390px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="00d1a3a656d549e1ae50674f3c72a984ModalLabel">拍照上传</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="form-group">
+                    <div id="00d1a3a656d549e1ae50674f3c72a984ErrorContainer" class="alert alert-danger" style="display: none">
+                        <i class="icon-remove-sign"></i>
+                        <div class="content">
+                            <h4>照片不允许为空!</h4>
+                            <p>还没有取得照片,点击拍照按钮获取</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <video id="00d1a3a656d549e1ae50674f3c72a984V"></video>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 col-sm-5">
+                        <canvas id="00d1a3a656d549e1ae50674f3c72a984Canvas" style="display: none;"></canvas>
+                        <img src="" id="00d1a3a656d549e1ae50674f3c72a984Photo" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" id="00d1a3a656d549e1ae50674f3c72a984CancelButton">取消</a>
+                    <a class="btn btn-default" id="00d1a3a656d549e1ae50674f3c72a984TakeButton">拍照</a>
+                    <a class="btn btn-default" id="00d1a3a656d549e1ae50674f3c72a984YesButton">确定</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() { angel.canvasUploadControl.initialize(); });
+    angel.canvasUploadControl = (function($) {
+        var file = {};
+        var videoPlaying = false;
+        var videoTracks;
+        var $controlContainer = $("#00d1a3a656d549e1ae50674f3c72a984Container");
+        var $erroContainer = $("#00d1a3a656d549e1ae50674f3c72a984ErrorContainer");
+        var $video = document.getElementById('00d1a3a656d549e1ae50674f3c72a984V');
+        var $takeButton = document.getElementById('00d1a3a656d549e1ae50674f3c72a984TakeButton');
+        var $canvas = document.getElementById('00d1a3a656d549e1ae50674f3c72a984Canvas');
+        var $photo = document.getElementById('00d1a3a656d549e1ae50674f3c72a984Photo');
+        var $cancelButton = $("#00d1a3a656d549e1ae50674f3c72a984CancelButton");
+        //var $takeButton = $("#00d1a3a656d549e1ae50674f3c72a984TakeButton");
+        var $yesButton = $("#00d1a3a656d549e1ae50674f3c72a984YesButton");
+
+        var yesButtonHandler = function() {};
+        var cancelButtonHandler = function() {};
+
+        var constraints = {
+            video: true,
+            audio: false
+        };
+
+        var that = {};
+
+        that.initialize = function() {
+            $cancelButton.click(function() {
+                cancelButtonHandler();
+                // Stop all video streams.
+                videoTracks.forEach(function(track) { track.stop() });
+                $controlContainer.modal("hide");
+            });
+
+            $yesButton.click(function() {
+                yesButtonHandler();
+                videoTracks.forEach(function(track) { track.stop() });
+                if (!file.Id) {
+                    $erroContainer.show();
+                    return;
+                } else {
+                    $erroContainer.hide();
+                }
+                $controlContainer.modal("hide");
+            });
+
+            $takeButton.addEventListener('click',
+                function() {
+                    if (videoPlaying) {
+                        $canvas.width = $video.videoWidth;
+                        $canvas.height = $video.videoHeight;
+                        $canvas.getContext('2d').drawImage($video, 0, 0);
+                        var photoData = $canvas.toDataURL('image/webp');
+                        // Generate the image data
+                        var sendPic = $canvas.toDataURL("image/jpeg");
+                        sendPic = sendPic.replace(/^data:image\/(png|jpeg);base64,/, "");
+                        // Sending the image data to Server
+                        $.ajax({
+                            type: 'POST',
+                            url: '../UserControl/UploadImage',
+                            data: '{ "imageData" : "' + sendPic + '" }',
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            success: function(result) {
+                                if (result.result != 0) {
+                                    angel.alert("上传错误:" + result.resultValue);
+                                    return;
+                                }
+                                file = result.resultValue;
+                            }
+                        });
+                        $photo.setAttribute('src', photoData);
+                    }
+                },
+                false);
+        };
+
+        that.show = function(confirmHandler, cancelHandler) {
+            file = {};
+            $erroContainer.hide();
+            $photo.setAttribute('src', '');
+            if ($.isFunction(confirmHandler)) {
+                yesButtonHandler = confirmHandler;
+            }
+            if ($.isFunction(cancelHandler)) {
+                cancelButtonHandler = cancelHandler;
+            }
+            $controlContainer.modal({ backdrop: "static", keyboard: false });
+            $controlContainer.modal("show");
+
+            try {
+                // 老的浏览器可能根本没有实现 mediaDevices，所以我们可以先设置一个空的对象
+                if (navigator.mediaDevices === undefined) {
+                    navigator.mediaDevices = {};
+                }
+                if (navigator.mediaDevices.getUserMedia === undefined) {
+                    navigator.mediaDevices.getUserMedia = function(constraints) {
+                        // 首先，如果有getUserMedia的话，就获得它
+                        var getUserMedia = navigator.webkitGetUserMedia ||
+                            navigator.mozGetUserMedia ||
+                            navigator.msGetUserMedia;
+                        // 一些浏览器根本没实现它 - 那么就返回一个error到promise的reject来保持一个统一的接口
+                        if (!getUserMedia) {
+                            return window.Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+                        }
+                        // 否则，为老的navigator.getUserMedia方法包裹一个Promise
+                        return new window.Promise(function(resolve, reject) {
+                            getUserMedia.call(navigator, constraints, resolve, reject);
+                        });
+                    };
+                }
+                var promise = navigator.mediaDevices.getUserMedia(constraints);
+                promise.then(stream => {
+                    // 旧的浏览器可能没有srcObject
+                    if ("srcObject" in $video) {
+                        $video.srcObject = stream;
+                    } else {
+                        // 防止再新的浏览器里使用它，应为它已经不再支持了
+                        $video.src = window.URL.createObjectURL(stream);
+                    }
+                    $video.onloadedmetadata = function() {
+                        $video.play();
+                        videoPlaying = true;
+                    };
+                    videoTracks = stream.getVideoTracks();
+                }).catch(err => {
+                    if (err.name == 'DevicesNotFoundError') {
+                        angel.alert('未获取到摄像头',
+                            function() {
+                                $controlContainer.modal("hide");
+                            });
+                    } else {
+                        console.error(err.name + ": " + err.message);
+                    }
+                });
+            } catch (err) {
+                angel.alert("获取摄像头出错," + err.message,
+                    function() {
+                        $controlContainer.modal("hide");
+                    });
+            }
+        };
+
+        that.newFile = function() {
+            return file;
+        };
+        return that;
+    })(jQuery);
+</script>

@@ -1,0 +1,387 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* start editing from here */
+
+a { text-decoration: none; }
+
+.txt-rt { text-align: right; }
+
+/* text align right */
+
+.txt-lt { text-align: left; }
+
+/* text align left */
+
+.txt-center { text-align: center; }
+
+/* text align center */
+
+.float-rt { float: right; }
+
+/* float right */
+
+.float-lt { float: left; }
+
+/* float left */
+
+.clear { clear: both; }
+
+/* clear float */
+
+.pos-relative { position: relative; }
+
+/* Position Relative */
+
+.pos-absolute { position: absolute; }
+
+/* Position Absolute */
+
+.vertical-base { vertical-align: baseline; }
+
+/* vertical align baseline */
+
+.vertical-top { vertical-align: top; }
+
+/* vertical align top */
+
+.underline {
+    border-bottom: 1px solid #eee;
+    margin: 0 0 20px 0;
+    padding-bottom: 5px;
+}
+
+/* Add 5px bottom padding and a underline */
+
+nav.vertical ul li { display: block; }
+
+/* vertical menu */
+
+nav.horizontal ul li { display: inline-block; }
+
+/* horizontal menu */
+
+img { max-width: 100%; }
+
+/*end reset*/
+
+body {
+    background: rgb(30, 87, 153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 37%, rgba(32, 124, 202, 1) 61%, rgba(125, 185, 232, 1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(30, 87, 153, 1)), color-stop(37%, rgba(41, 137, 216, 1)), color-stop(61%, rgba(32, 124, 202, 1)), color-stop(100%, rgba(125, 185, 232, 1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 37%, rgba(32, 124, 202, 1) 61%, rgba(125, 185, 232, 1) 100%); /* Chrome10+,Safari5.1+ */
+    background: rgb(30, 87, 153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(30, 87, 153, 1) 0%, rgba(41, 137, 216, 1) 37%, rgba(32, 124, 202, 1) 61%, rgba(125, 185, 232, 1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(30, 87, 153, 1)), color-stop(37%, rgba(41, 137, 216, 1)), color-stop(61%, rgba(32, 124, 202, 1)), color-stop(100%, rgba(125, 185, 232, 1))); /* Chrome,Safari4+ */
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=0); /* IE6-9 */
+    font-family: 'Armata', sans-serif;
+    font-size: 100%;
+    padding: 50px 0px 30px 0px;
+}
+
+/*--contact start here--*/
+
+.contact {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px 0px rgba(23, 22, 22, 0.33);
+    margin: 0 auto;
+    padding: 30px 25px 45px 25px;
+    text-align: center;
+    width: 35%;
+}
+
+h1 {
+    color: #fff;
+    font-size: 40PX;
+    font-weight: 400;
+    margin: 0px 0px 30px 0px;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #000;
+    font-size: 30px;
+    margin: 0px 0px 8px 0px;
+}
+
+.contact p {
+    border-bottom: 1px solid #E9E9E9;
+    color: #909090;
+    font-size: 12px;
+    padding: 0px 0px 15px 0px;
+}
+
+.contact form { padding: 20px 0px 0px 0px; }
+
+.contact h3 {
+    color: #818181;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px 0px 10px 0px;
+}
+
+.contact input[type="text"] {
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 3px;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #bcbcbc;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0px 0px 10px 0px;
+    outline: none;
+    padding: 12px 10px 12px 50px;
+    width: 55%;
+}
+
+.contact input[type="text"]:hover, .contact input.active {
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    box-shadow: 0px 0px 4px 0px #3386E1;
+    transition: 0.5s all;
+}
+
+.contact input[type="password"] {
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 3px;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #bcbcbc;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0px 0px 10px 0px;
+    outline: none;
+    padding: 12px 10px 12px 50px;
+    width: 55%;
+}
+
+.contact input[type="password"]:hover, .contact input.active {
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    box-shadow: 0px 0px 4px 0px #3386E1;
+    transition: 0.5s all;
+}
+
+.contact input.user {
+    background: url(images/UserNameIcon.png) no-repeat 10px 8px;
+    width: 66%;
+}
+
+.contact input.password {
+    background: url(images/PasswordIcon.png) no-repeat 10px 8px;
+    width: 66%;
+}
+
+.contact input[type="button"] {
+    -moz-border-radius: 6px;
+    -moz-transition: 0.5s all;
+    -o-border-radius: 6px;
+    -o-transition: 0.5s all;
+    -webkit-border-radius: 5px;
+    -webkit-transition: 0.5s all;
+    background: #1A7CEA;
+    border-bottom: 3px solid #0E5099;
+    border-left: none;
+    border-radius: 6px;
+    border-right: none;
+    border-top: none;
+    color: #FFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 10px 0px 0px 0px;
+    outline: none;
+    padding: 15px 7px;
+    transition: 0.5s all;
+    width: 66%;
+}
+
+.contact input[type="button"]:hover {
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    background: #3B73B3;
+    transition: 0.5s all;
+}
+
+.copyright {
+    padding: 150px 0px 0px 0px;
+    text-align: center;
+}
+
+.copyright p {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.copyright p a {
+    color: #49F8F6;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.copyright p a:hover {
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    color: #fff;
+    transition: 0.5s all;
+}
+
+/*--contact end here--*/
+
+/*--meadia quiries start here--*/
+
+@media (max-width: 1440px) {
+    .contact { width: 40%; }
+}
+
+@media (max-width: 1366px) {
+    .contact { width: 43%; }
+}
+
+@media (max-width: 1280px) {
+    .contact { width: 45%; }
+}
+
+@media (max-width: 1024px) {
+    .contact { width: 56%; }
+
+    .copyright { padding: 100px 0px 0px 0px; }
+}
+
+@media (max-width: 768px) {
+    .contact { width: 73%; }
+
+    .contact h2 { font-size: 26px; }
+
+    .contact h3 { font-size: 15px; }
+
+    .contact input[type="text"] { font-size: 13px; }
+
+    .contact input[type="button"] { font-size: 15px; }
+
+    .contact textarea { font-size: 13px; }
+
+    body { padding: 50px 0px 80px 0px; }
+}
+
+@media (max-width: 640px) {
+    .contact h2 { font-size: 24px; }
+
+    .contact input[type="text"] { font-size: 12px; }
+
+    .contact textarea { font-size: 12px; }
+
+    .contact input[type="button"] {
+        font-size: 14px;
+        width: 69%;
+    }
+
+    body { padding: 50px 0px 30px 0px; }
+
+    h1 { font-size: 35PX; }
+}
+
+@media (max-width: 480px) {
+    .contact h2 { font-size: 22px; }
+
+    .contact p { font-size: 9.5px; }
+
+    .contact form { padding: 10px 0px 0px 0px; }
+
+    .contact h3 { font-size: 13px; }
+
+    .contact input[type="text"] { width: 61%; }
+
+    .contact textarea { width: 61%; }
+
+    .contact input[type="button"] { width: 80%; }
+
+    h1 {
+        font-size: 30PX;
+        margin: 0px 0px 20px 0px;
+    }
+}
+
+@media (max-width: 320px) {
+    .contact h2 { font-size: 20px; }
+
+    body { padding: 30px 0px 30px 0px; }
+
+    .contact {
+        padding: 20px 15px 30px 15px;
+        width: 85%;
+    }
+
+    .contact input[type="text"] {
+        padding: 10px 10px 10px 45px;
+        width: 65%;
+    }
+
+    .contact input[type="button"] {
+        font-size: 12px;
+        margin: 0px 0px 0px 0px;
+        padding: 10px 7px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 25PX;
+        margin: 0px 0px 13px 0px;
+    }
+
+    .copyright p { font-size: 12px; }
+
+    .copyright p a { font-size: 12px; }
+
+    .copyright { padding: 50px 0px 0px 0px; }
+
+    .contact textarea {
+        height: 5em;
+        padding: 10px 10px 10px 45px;
+        width: 65%;
+    }
+
+    .contact h3 {
+        font-size: 11px;
+        margin: 1px 0px 6px 0px;
+    }
+}
+/*--meadia quiries end here--*/

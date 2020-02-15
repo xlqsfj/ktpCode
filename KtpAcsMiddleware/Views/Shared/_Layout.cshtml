@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>@ViewBag.Title</title>
+    @*zui*@
+    <link rel="stylesheet" href='@Url.Content("~/AppFrontend/bower_components/zui/css/zui.min.css")'/>
+    <link rel="stylesheet" href='@Url.Content("~/AppFrontend/bower_components/zui/css/zui-theme.min.css")'/>
+    <link rel="stylesheet" href='@Url.Content("~/AppFrontend/bower_components/zui-docs/css/doc.min.css")'/>
+    <link rel="stylesheet" href='@Url.Content("~/AppFrontend/css/angel.css")'/>
+
+    @*jquery*@
+    <script src="~/AppFrontend/bower_components/jquery/jquery.min.js"></script>
+    <script src="~/AppFrontend/bower_components/jquery/jquery-ui.custom.js"></script>
+    <script src="~/AppFrontend/bower_components/jquery/jquery.form.js"></script>
+    <script src="~/AppFrontend/bower_components/jquery/jquery.validate.js"></script>
+    <script src="~/AppFrontend/bower_components/jqgrid/jquery.fileupload.js"></script>
+    <script src="~/AppFrontend/bower_components/jqgrid/jquery.iframe-transport.js"></script>
+
+    @*zui*@
+    <script src="~/AppFrontend/bower_components/html5shiv/html5shiv.min.js"></script>
+    <script src="~/AppFrontend/bower_components/zui/js/zui.js"></script>
+
+    @*datetimepicker*@
+    <link rel="stylesheet" href='@Url.Content("~/AppFrontend/bower_components/zui-datetimepicker/datetimepicker.min.css")'/>
+    <script src="~/AppFrontend/bower_components/zui-datetimepicker/datetimepicker.min.js"></script>
+
+    @*prettify 增强文档插件*@
+    <script src="~/AppFrontend/bower_components/prettify/prettify.js"></script>
+
+    @*angel*@
+    <script src="~/AppFrontend/angel-js/angel.jquery.custom.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.validate.jquery.custom.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.validator.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.ajax.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.masterpage.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.confirmation.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.prompt.js"></script>
+
+    @*grid-bootstrap*@
+    <link href="~/AppFrontend/bower_components/bootstrap-glyphicons/bootstrap.glyphicons.css" rel="stylesheet"/>
+    <link href="~/AppFrontend/bower_components/jqgrid/css/ui.jqgrid-bootstrap4.css" rel="stylesheet"/>
+    <script src="~/AppFrontend/bower_components/jqgrid/grid.locale-cn.js"></script>
+    <script src="~/AppFrontend/bower_components/jqgrid/jquery.jqGrid.min.js"></script>
+    <script src="~/AppFrontend/angel-js/angel.grid.js"></script>
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href='@Url.Content("~/AppFrontend/images/logo-kaitaiping.png")'/>
+</head>
+<body class="view-double page-open compact-mode compact-mode-in page-show page-show-in" data-page-accent="primary">
+@RenderBody()
+</body>
+</html>

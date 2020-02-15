@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTreeMenu.cshtml";
+}
+@section leftmainmenuul{
+    <li>
+        <a href="#">
+            <i class="icon icon-th"></i>
+            <label id="activeMenuulName" class="label">@ViewBag.teamName</label>
+            @*<i class="icon icon-remove" id="removeTeamButton"></i>*@
+            <i class="icon icon-edit" id="editTeamButton"></i>
+            <i class="icon icon-plus" id="addTeamButton"></i>
+        </a>
+    </li>
+    @{
+        foreach (var team in ViewBag.teams)
+        {
+            if (team.Id == ViewBag.teamId)
+            {
+                <li class="active">
+                    <a href="#" itemid="@team.Id" name="teamName">@team.Name</a>
+                </li>
+                continue;
+            }
+            <li>
+                <a href="#" itemid="@team.Id" name="teamName">@team.Name</a>
+            </li>
+        }
+    }
+}
+@{ Html.RenderPartial("../UserControl/IdentityCardReader"); }
+<form id="mainForm">
+    @{ Html.RenderPartial("TeamMgmt"); }
+    @{ Html.RenderPartial("TeamWorkerMgmt"); }
+    @{ Html.RenderPartial("../UserControl/FileUpload"); }
+</form>
+@{ Html.RenderPartial("../UserControl/CanvasUpload"); }
+@{ Html.RenderPartial("WorkerIdentityAuthentication"); }
+<div class="input-group" style="margin-bottom: 3px;">
+    <div class="input-control has-icon-left has-icon-right">
+        <input id="searchText" class="form-control" type="search" placeholder="关键字" style="width: 90%">
+        <label for="searchText" class="input-control-icon-left search-icon">
+            <i class="icon icon-search"></i>
+        </label>
+        <select class="form-control" id="authenticationState" style="padding-left: 0; padding-right: 0; width: 10%;">
+            @{
+                foreach (var authenticationState in ViewBag.authenticationStates)
+                {
+                    <option value="@authenticationState.Key">@authenticationState.Value</option>
+                }
+            }
+        </select>
+    </div>
+    <span class="input-group-btn">
+        <button type="button" id="searchButton" class="btn btn-primary">搜索</button>
+        <button type="button" id="createButton" class="btn btn-default">新建</button>
+    </span>
+</div>
+<div class="jqGrid_wrapper">
+    <table id="list"></table>
+    <div id="listPager"></div>
+</div>
+<input type="hidden" id="teamId" name="teamId" value="@ViewBag.teamId"/>
+<script src="~/Views/TeamWorker/WorkerIdentityAuthentication.js"></script>
+<script src="~/Views/TeamWorker/TeamMgmt.js"></script>
+<script src="~/Views/TeamWorker/TeamWorkerMgmtPic.js"></script>
+<script src="~/Views/TeamWorker/TeamWorkerMgmtIdentity.js"></script>
+<script src="~/Views/TeamWorker/TeamWorkerMgmt.js"></script>
+<script src="~/Views/TeamWorker/IndexTeam.js"></script>
+<script src="~/Views/TeamWorker/Index.js"></script>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "用户列表";
+    Layout = "~/Views/Shared/_LayoutNavigation.cshtml";
+}
+<script src="~/Views/User/UserList.js"></script>
+<div class="input-group" style="margin-bottom: 3px;">
+    <div class="input-control has-icon-left has-icon-right">
+        <input id="searchText" class="form-control" placeholder="关键字" type="search" style="width: 90%">
+        <select class="form-control" id="userStatus" style="padding-left: 0; padding-right: 0; width: 10%;">
+            <option value="0" selected>正常</option>
+            <option value="1">已注销</option>
+        </select>
+        <label for="searchText" class="input-control-icon-left search-icon">
+            <i class="icon icon-search"></i>
+        </label>
+    </div>
+    <span class="input-group-btn">
+        <button type="button" id="searchButton" class="btn btn-primary">搜索</button>
+        <button type="button" id="createButton" class="btn btn-default">新建</button>
+    </span>
+</div>
+<div class="jqGrid_wrapper">
+    <table id="userList"></table>
+    <div id="userListPager"></div>
+</div>

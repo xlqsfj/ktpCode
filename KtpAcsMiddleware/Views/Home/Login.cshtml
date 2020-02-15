@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "用户登录";
+    Layout = "_Layout.cshtml";
+}
+<h2>建信开太平ASC中间件</h2>
+<p>为民立命 为万世开太平</p>
+<form id="loginForm">
+    <div id="loginErrorContainer" class="alert alert-danger with-icon" style="display: none; padding: 6px;">
+        <i class="icon-remove-sign"></i>
+        <div class="content" style="padding-left: 0">
+            <h4 id="loginErrorMsg">用户名或者密码错误。</h4>
+        </div>
+    </div>
+    <table style="width: 100%">
+        <tr>
+            <td style="width: 70px;">
+                <h3>
+                    <span>用户名：</span>
+                </h3>
+            </td>
+            <td>
+                <input type="text" id="loginName" name="loginName" class="user active" value="Login Name" onfocus=" this.value = ''; " onblur=" if (this.value == '') { this.value = 'Login Name'; } ">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>
+                    <span>密 码：</span>
+                </h3>
+            </td>
+            <td>
+                <input type="password" id="password" name="password" class="password active" value="Password" onfocus=" this.value = ''; " onblur=" if (this.value == '') { this.value = 'Password'; } ">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" id="loginButton" value="登录"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<script src="~/Views/Home/Login.js">
+</script>

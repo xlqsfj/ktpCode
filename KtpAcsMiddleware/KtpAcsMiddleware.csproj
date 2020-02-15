@@ -1,0 +1,403 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{928CD566-9F83-4BDC-8FDB-15B723D43EB0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KtpAcsMiddleware</RootNamespace>
+    <AssemblyName>KtpAcsMiddleware</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Configuration.4.1.0\lib\net45\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=1.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.1.0.2\lib\netstandard1.1\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.0.2\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.0.1\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Api\FileWebService.asmx" />
+    <Content Include="AppFrontend\angel-js\angel.ajax.js" />
+    <Content Include="AppFrontend\angel-js\angel.confirmation.js" />
+    <Content Include="AppFrontend\angel-js\angel.grid.js" />
+    <Content Include="AppFrontend\angel-js\angel.jquery.custom.js" />
+    <Content Include="AppFrontend\angel-js\angel.js" />
+    <Content Include="AppFrontend\angel-js\angel.masterpage.js" />
+    <Content Include="AppFrontend\angel-js\angel.prompt.js" />
+    <Content Include="AppFrontend\angel-js\angel.validator.js" />
+    <Content Include="AppFrontend\bower_components\bootstrap-glyphicons\bootstrap.glyphicons.css" />
+    <Content Include="AppFrontend\bower_components\bootstrap-glyphicons\glyphicons-halflings-regular.svg" />
+    <Content Include="AppFrontend\bower_components\html5shiv\bluebird.js" />
+    <Content Include="AppFrontend\bower_components\html5shiv\html5shiv.min.js" />
+    <Content Include="AppFrontend\bower_components\html5shiv\polyfill.min.js" />
+    <Content Include="AppFrontend\bower_components\jqgrid\css\ui.jqgrid-bootstrap4.css" />
+    <Content Include="AppFrontend\bower_components\jqgrid\grid.locale-cn.js" />
+    <Content Include="AppFrontend\bower_components\jqgrid\jquery.fileupload.js" />
+    <Content Include="AppFrontend\bower_components\jqgrid\jquery.iframe-transport.js" />
+    <Content Include="AppFrontend\bower_components\jqgrid\jquery.jqGrid.min.js" />
+    <Content Include="AppFrontend\bower_components\jqgrid\css\ui.jqgrid.css.css" />
+    <Content Include="AppFrontend\bower_components\jquery\jquery-ui.custom.js" />
+    <Content Include="AppFrontend\bower_components\jquery\jquery.form.js" />
+    <Content Include="AppFrontend\bower_components\jquery\jquery.min.js" />
+    <Content Include="AppFrontend\angel-js\angel.validate.jquery.custom.js" />
+    <Content Include="AppFrontend\bower_components\jquery\jquery.validate.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-apollo.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-basic.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-clj.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-css.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-dart.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-erlang.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-go.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-hs.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-lisp.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-llvm.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-lua.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-matlab.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-ml.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-mumps.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-n.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-pascal.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-proto.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-r.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-rd.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-scala.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-sql.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-tcl.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-tex.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-vb.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-vhdl.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-wiki.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-xq.js" />
+    <Content Include="AppFrontend\bower_components\prettify\lang-yaml.js" />
+    <Content Include="AppFrontend\bower_components\prettify\prettify.css" />
+    <Content Include="AppFrontend\bower_components\prettify\prettify.js" />
+    <Content Include="AppFrontend\bower_components\prettify\run_prettify.js" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\1_close.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\1_open.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\2.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\3.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\4.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\5.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\6.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\7.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\8.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\diy\9.png" />
+    <Content Include="AppFrontend\bower_components\ztree\img\line_conn.gif" />
+    <Content Include="AppFrontend\bower_components\ztree\img\loading.gif" />
+    <Content Include="AppFrontend\bower_components\ztree\img\zTreeStandard.gif" />
+    <Content Include="AppFrontend\bower_components\ztree\img\zTreeStandard.png" />
+    <Content Include="AppFrontend\bower_components\ztree\jquery.ztree.core.min.js" />
+    <Content Include="AppFrontend\bower_components\ztree\jquery.ztree.exhide.js" />
+    <Content Include="AppFrontend\bower_components\ztree\zTreeStyle.css" />
+    <Content Include="AppFrontend\bower_components\zui-datetimepicker\datetimepicker.css" />
+    <Content Include="AppFrontend\bower_components\zui-datetimepicker\datetimepicker.js" />
+    <Content Include="AppFrontend\bower_components\zui-datetimepicker\datetimepicker.min.css" />
+    <Content Include="AppFrontend\bower_components\zui-datetimepicker\datetimepicker.min.js" />
+    <Content Include="AppFrontend\bower_components\zui-docs\css\doc.css" />
+    <Content Include="AppFrontend\bower_components\zui-docs\css\doc.min.css" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\chanzhi_icon.png" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\img1.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\img2.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\img3.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\img4.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\img5.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\ranzhi_icon.png" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\slide1.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\slide2.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\slide3.jpg" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\zdoo_icon.png" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\zentao_icon.png" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\zui-48.png" />
+    <Content Include="AppFrontend\bower_components\zui-docs\img\zui-logo-48.png" />
+    <Content Include="AppFrontend\bower_components\zui\css\zui-theme.css" />
+    <Content Include="AppFrontend\bower_components\zui\css\zui-theme.min.css" />
+    <Content Include="AppFrontend\bower_components\zui\css\zui.css" />
+    <Content Include="AppFrontend\bower_components\zui\css\zui.lite.css" />
+    <Content Include="AppFrontend\bower_components\zui\css\zui.lite.min.css" />
+    <Content Include="AppFrontend\bower_components\zui\css\zui.min.css" />
+    <Content Include="AppFrontend\bower_components\zui\fonts\zenicon.svg" />
+    <Content Include="AppFrontend\bower_components\zui\js\zui.js" />
+    <Content Include="AppFrontend\bower_components\zui\js\zui.lite.js" />
+    <Content Include="AppFrontend\bower_components\zui\js\zui.lite.min.js" />
+    <Content Include="AppFrontend\bower_components\zui\js\zui.min.js" />
+    <Content Include="AppFrontend\css\angel.css" />
+    <Content Include="AppFrontend\images\contact.jpg" />
+    <Content Include="AppFrontend\images\logo-kaitaiping-2.png" />
+    <Content Include="AppFrontend\images\logo-kaitaiping_20181101172431.png" />
+    <Content Include="AppFrontend\images\logo-kaitaiping_20181101172439.png" />
+    <Content Include="AppFrontend\images\PasswordIcon.png" />
+    <Content Include="AppFrontend\images\UserNameIcon.png" />
+    <Content Include="AppFrontend\css\login.style.css" />
+    <Content Include="AppFrontend\images\cross_circle.png" />
+    <Content Include="AppFrontend\images\logo-kaitaiping.png" />
+    <Content Include="AppFrontend\images\mini_refresh_default.png" />
+    <Content Include="Views\FaceRecognition\DeletedList.js" />
+    <Content Include="Views\FaceRecognition\Index.js" />
+    <Content Include="Views\FaceRecognition\DeviceMgmt.js" />
+    <Content Include="Views\Home\ChangePassword.js" />
+    <Content Include="Views\Home\Login.js" />
+    <Content Include="Views\KtpLibrary\AuthenticationSyncList.js" />
+    <Content Include="Views\KtpLibrary\TeamSyncList.js" />
+    <Content Include="Views\KtpLibrary\WorkerSyncList.js" />
+    <Content Include="Views\TeamWorker\TeamWorkerDetail.js" />
+    <Content Include="Views\TeamWorker\IndexTeam.js" />
+    <Content Include="Views\TeamWorker\TeamMgmt.js" />
+    <Content Include="Views\TeamWorker\TeamWorkerMgmtPic.js" />
+    <Content Include="Views\TeamWorker\WorkerIdentityAuthentication.js" />
+    <Content Include="Views\TeamWorker\TeamWorkerMgmtIdentity.js" />
+    <Content Include="Views\User\UserDetail.js" />
+    <Content Include="Views\User\UserList.js" />
+    <Content Include="Views\TeamWorker\Index.js" />
+    <Content Include="Views\TeamWorker\TeamWorkerMgmt.js" />
+    <Content Include="Default.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="Login.htm" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ApiBaseController.cs" />
+    <Compile Include="Api\FaceAuthenticationApiController.cs" />
+    <Compile Include="Api\FaceDeviceApiController.cs" />
+    <Compile Include="Api\FaceDeviceWorkerApiController.cs" />
+    <Compile Include="Api\FileWebService.asmx.cs">
+      <DependentUpon>FileWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="App_Start\DependencyConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FaceDeviceDeletedController.cs" />
+    <Compile Include="Controllers\FaceRecognitionController.cs" />
+    <Compile Include="Controllers\FaceDeviceController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KtpLibraryController.cs" />
+    <Compile Include="Controllers\KtpLibraryApiController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Controllers\UserControlController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\TeamWorkerController.cs" />
+    <Compile Include="Models\FaceRecognitionDeviceWorkerJsonService.cs" />
+    <Compile Include="Models\KtpLibraryJsonService.cs" />
+    <Compile Include="Models\TeamWorkerJsonService.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\_ControllerBase.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JsonJqGrids\JqGridObject.cs" />
+    <Compile Include="Models\JsonJqGrids\JqGridRowObject.cs" />
+    <Compile Include="Models\OrganizationJsonService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="NLog.config" />
+    <Content Include="AppFrontend\bower_components\bootstrap-glyphicons\glyphicons-halflings-regular.eot" />
+    <Content Include="AppFrontend\bower_components\bootstrap-glyphicons\glyphicons-halflings-regular.ttf" />
+    <Content Include="AppFrontend\bower_components\bootstrap-glyphicons\glyphicons-halflings-regular.woff" />
+    <Content Include="AppFrontend\bower_components\bootstrap-glyphicons\glyphicons-halflings-regular.woff2" />
+    <Content Include="AppFrontend\bower_components\zui\fonts\zenicon.eot" />
+    <Content Include="AppFrontend\bower_components\zui\fonts\zenicon.ttf" />
+    <Content Include="AppFrontend\bower_components\zui\fonts\zenicon.woff" />
+    <Content Include="Views\TeamWorker\Index.cshtml" />
+    <Content Include="Views\TeamWorker\TeamWorkerMgmt.cshtml" />
+    <Content Include="Views\Test\CanvasTest.cshtml" />
+    <Content Include="Views\UserControl\FileUploadList.cshtml" />
+    <Content Include="AppFrontend\images\logo-kaitaiping_20181101172439.ai" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\LoginError.cshtml" />
+    <Content Include="Views\Shared\PermissionError.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\User\UserList.cshtml" />
+    <Content Include="Views\Shared\_LayoutNavigation.cshtml" />
+    <Content Include="Views\User\UserDetail.cshtml" />
+    <Content Include="Views\Shared\_LayoutTreeMenu.cshtml" />
+    <Content Include="Views\UserControl\FileUpload.cshtml" />
+    <Content Include="Views\Test\FileUploadTest.cshtml" />
+    <Content Include="Views\UserControl\CanvasUpload.cshtml" />
+    <Content Include="Views\FaceRecognition\Index.cshtml" />
+    <Content Include="Views\FaceRecognition\DeviceMgmt.cshtml" />
+    <Content Include="Views\FaceRecognition\WorkerSelectControl.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Test\FaceRecognitionApi.cshtml" />
+    <Content Include="Views\TeamWorker\TeamMgmt.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\UserControl\IdentityCardReader.cshtml" />
+    <Content Include="Views\Test\SynCardReaderTest.cshtml" />
+    <Content Include="Views\TeamWorker\WorkerIdentityAuthentication.cshtml" />
+    <Content Include="Views\TeamWorker\TeamWorkerDetail.cshtml" />
+    <Content Include="Views\KtpLibrary\WorkerSyncList.cshtml" />
+    <Content Include="Views\KtpLibrary\TeamSyncList.cshtml" />
+    <Content Include="Views\Home\_Layout.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\FaceRecognition\DeletedList.cshtml" />
+    <Content Include="Views\KtpLibrary\AuthenticationSyncList.cshtml" />
+    <Content Include="Views\Home\UserProfile.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="_Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KtpAcsMiddleware.AppService\KtpAcsMiddleware.AppService.csproj">
+      <Project>{c99b9e21-e887-4b55-ad69-1bd34fb06f93}</Project>
+      <Name>KtpAcsMiddleware.AppService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.Domain\KtpAcsMiddleware.Domain.csproj">
+      <Project>{72729835-f8f2-452a-be42-b870978a8865}</Project>
+      <Name>KtpAcsMiddleware.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.Infrastructure\KtpAcsMiddleware.Infrastructure.csproj">
+      <Project>{53a463e8-d6ff-413d-a95b-6089ef60003e}</Project>
+      <Name>KtpAcsMiddleware.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.KtpApiService.Asp\KtpAcsMiddleware.KtpApiService.Asp.csproj">
+      <Project>{59db41eb-82ef-41d6-82e8-2d3392727277}</Project>
+      <Name>KtpAcsMiddleware.KtpApiService.Asp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51359</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51359/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

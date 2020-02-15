@@ -1,0 +1,156 @@
+﻿<div id="58a1be06fd694e929136f2644bc791a2Container" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="58a1be06fd694e929136f2644bc791a2ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="58a1be06fd694e929136f2644bc791a2ModalLabel">工人选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input type="text" id="58a1be06fd694e929136f2644bc791a2SearchText" class="form-control" placeholder="模糊条件">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="58a1be06fd694e929136f2644bc791a2SearchButton">搜索</button>
+                    </span>
+                </div>
+                <div style="height: 3px; width: 100%;"></div>
+                <table id="58a1be06fd694e929136f2644bc791a2List"></table>
+                <div id="58a1be06fd694e929136f2644bc791a2ListPager"></div>
+            </div>
+            <div class="modal-footer">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" id="58a1be06fd694e929136f2644bc791a2CancelButton">取消</a>
+                    @*<a class="btn btn-default" id="58a1be06fd694e929136f2644bc791a2YesButton">确定</a>*@
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() { angel.workerSelectControl.initialize(); });
+    angel.workerSelectControl = (function($) {
+        var $controlContainer = $("#58a1be06fd694e929136f2644bc791a2Container");
+        var $searchText = $("#58a1be06fd694e929136f2644bc791a2SearchText");
+        var $searchButton = $("#58a1be06fd694e929136f2644bc791a2SearchButton");
+        var $grid = $("#58a1be06fd694e929136f2644bc791a2List");
+        var gridPager = "#58a1be06fd694e929136f2644bc791a2ListPager";
+        var $cancelButton = $("#58a1be06fd694e929136f2644bc791a2CancelButton");
+
+        var selectButtonHandler = function() {};
+        var cancelButtonHandler = function() {};
+
+        var that = {};
+
+        var initializeGridWidth = function() {
+            var width = 568;
+            var searchTextParentWidth = $searchText.parent().width();
+            if (width < searchTextParentWidth) {
+                width = searchTextParentWidth;
+            }
+            $grid.setGridWidth(width);
+            $(".ui-jqgrid-htable", $controlContainer).width($(".ui-jqgrid-hdiv", $controlContainer).width() - 1);
+            $(".ui-jqgrid-btable", $controlContainer).width($(".ui-jqgrid-hdiv", $controlContainer).width());
+            $(".ui-jqgrid-title", $controlContainer).css("color", "white");
+        };
+
+        var initializeGrid = function() {
+            $grid.jqGrid({
+                datatype: 'local',
+                colNames: ["姓名", "证件号", "籍贯", "选择"],
+                colModel: [
+                    { name: "Name", index: "Name", width: 100, sortable: false },
+                    { name: "IdentityCode", index: "IdentityCode", width: 100, sortable: false },
+                    { name: "HouseRegister", index: "HouseRegister", width: 100, sortable: false },
+                    { name: "select", index: "select", width: 60, sortable: false }
+                ],
+                caption: null,
+                hidegrid: false,
+                sortname: null,
+                sortorder: '',
+                shrinkToFit: true, //false
+                pager: gridPager,
+                rowNum: 10,
+                rowList: [10, 20, 30],
+                viewrecords: true,
+                rownumbers: false,
+                multiselect: false,
+                height: 300,
+                width: 700,
+                autowidth: true,
+                styleUI: 'Bootstrap',
+                gridComplete: function() {
+                    $('button[name="58a1be06fd694e929136f2644bc791a2ListSelectButton"]', $grid).click(function() {
+                        var worker = {
+                            Id: $(this).attr("id"),
+                            Name: $(this).attr("name"),
+                            IdentityCode: $(this).attr("identityCode")
+                        };
+                        selectButtonHandler(worker);
+                        $controlContainer.modal("hide");
+                    });
+                }
+            });
+            var pager = { refresh: true, search: false, edit: false, add: false, del: false };
+            $grid.jqGrid("navGrid", gridPager, pager, { height: 200, reloadAfterSubmit: true });
+        };
+
+        var initGridData = function() {
+            var url = "GetWorkerSelectControlUserList?keywords=" + $searchText.val();
+            angel.ajaxGet(url,
+                function(data) {
+                    var result = $.parseJSON(data);
+                    if (result.result != 0) {
+                        angel.alert(result.resultValue);
+                        return;
+                    }
+                    $grid.clearGridData();
+                    var list = result.resultValue;
+                    for (var iWorkerListSelectIndex = 0;
+                        iWorkerListSelectIndex < list.length;
+                        iWorkerListSelectIndex++) {
+                        var user = list[iWorkerListSelectIndex];
+                        var selectButtonTmp =
+                            "<button type='button' name='58a1be06fd694e929136f2644bc791a2ListSelectButton' id='{id}' name='{name}' " +
+                                "identityCode='{identityCode}' class='btn btn-sm'>选择</button>";
+                        var selectButton = selectButtonTmp
+                            .replace("{id}", user.Id)
+                            .replace("{name}", user.Name)
+                            .replace("{identityCode}", user.IdentityCode);
+                        list[iWorkerListSelectIndex].select = selectButton;
+                    }
+                    $grid.setGridParam({ data: list });
+                    $grid.trigger("reloadGrid");
+                });
+        };
+
+        that.initialize = function() {
+            $searchButton.click(function() { initGridData(); });
+            $cancelButton.click(function() {
+                cancelButtonHandler();
+                $controlContainer.modal("hide");
+            });
+
+            $(window).bind("resize", function() { initializeGridWidth(); });
+            initializeGrid();
+            initGridData();
+        };
+
+        that.show = function(confirmHandler, cancelHandler) {
+            if ($.isFunction(confirmHandler)) {
+                selectButtonHandler = confirmHandler;
+            }
+            if ($.isFunction(cancelHandler)) {
+                cancelButtonHandler = cancelHandler;
+            }
+
+            $controlContainer.modal({ backdrop: "static", keyboard: false });
+            $controlContainer.modal("show");
+            $searchText.val("");
+            initGridData();
+            initializeGridWidth();
+        };
+        return that;
+    })(jQuery);
+</script>
