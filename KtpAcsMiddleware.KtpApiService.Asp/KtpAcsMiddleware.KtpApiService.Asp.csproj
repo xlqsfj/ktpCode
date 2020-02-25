@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59DB41EB-82EF-41D6-82E8-2D3392727277}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KtpAcsMiddleware.KtpApiService.Asp</RootNamespace>
+    <AssemblyName>KtpAcsMiddleware.KtpApiService.Asp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AspSyncService.cs" />
+    <Compile Include="AuthenticationSyncs\AuthSyncAspService.cs" />
+    <Compile Include="AuthenticationSyncs\KtpAuthService.cs" />
+    <Compile Include="AuthenticationSyncs\Dto\KtpAuthApiResultParameters.cs" />
+    <Compile Include="AuthenticationSyncs\Dto\KtpAuthApiResult.cs" />
+    <Compile Include="Base\KtpApiFlag.cs" />
+    <Compile Include="Base\KtpApiResultBase.cs" />
+    <Compile Include="Base\KtpApiResultService.cs" />
+    <Compile Include="AspCoverPushService.cs" />
+    <Compile Include="NewTeamWorkerSyncs\TeamApi.cs" />
+    <Compile Include="TeamSyncs\Dto\KtpTeamGetApiResultContentPo.cs" />
+    <Compile Include="TeamSyncs\Dto\KtpTeamPushApiResult.cs" />
+    <Compile Include="TeamSyncs\Dto\KtpTeamGetApiResult.cs" />
+    <Compile Include="TeamSyncs\Api\KtpTeamLoadService.cs" />
+    <Compile Include="WorkerSyncs\Api\KtpWokerObtainList.cs" />
+    <Compile Include="WorkerSyncs\Dto\KtpWorkerApiGetResult.cs" />
+    <Compile Include="WorkerSyncs\Dto\KtpWorkerApiGetResultContentUser.cs" />
+    <Compile Include="WorkerSyncs\Dto\KtpWorkerApiPushResult.cs" />
+    <Compile Include="WorkerSyncs\Dto\KtpWorkerApiPushResultParameters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamSyncs\Api\KtpTeamUpService.cs" />
+    <Compile Include="TeamSyncs\TeamSyncAspService.cs" />
+    <Compile Include="Base\DataFactory.cs" />
+    <Compile Include="WorkerSyncs\Dto\KtpIdentityApiResult.cs" />
+    <Compile Include="WorkerSyncs\WorkerAspSys.cs" />
+    <Compile Include="WorkerSyncs\WorkerIdentityAspService.cs" />
+    <Compile Include="WorkerSyncs\Api\KtpWorkerLoadService.cs" />
+    <Compile Include="WorkerSyncs\Api\KtpWorkerUpService.cs" />
+    <Compile Include="WorkerSyncs\WorkerPushExceptionAspService.cs" />
+    <Compile Include="WorkerSyncs\WorkerSyncAspDesignatedService.cs" />
+    <Compile Include="WorkerSyncs\WorkerSyncAspService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KtpAcsMiddleware.Domain\KtpAcsMiddleware.Domain.csproj">
+      <Project>{72729835-f8f2-452a-be42-b870978a8865}</Project>
+      <Name>KtpAcsMiddleware.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.Infrastructure\KtpAcsMiddleware.Infrastructure.csproj">
+      <Project>{53a463e8-d6ff-413d-a95b-6089ef60003e}</Project>
+      <Name>KtpAcsMiddleware.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

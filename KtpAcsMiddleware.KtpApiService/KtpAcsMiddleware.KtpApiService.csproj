@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7ADC634-FF2A-4B90-A07E-789AFABBC56F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KtpAcsMiddleware.KtpApiService</RootNamespace>
+    <AssemblyName>KtpAcsMiddleware.KtpApiService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="KS.Resting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\KS.Resting.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiBaseForm.cs" />
+    <Compile Include="ApiBase.cs" />
+    <Compile Include="Api\ApiType.cs" />
+    <Compile Include="Api\Constants.cs" />
+    <Compile Include="Api\HttpVerb.cs" />
+    <Compile Include="Api\RestClient.cs" />
+    <Compile Include="Api\Result.cs" />
+    <Compile Include="Base\MutipleThreadResetEvent.cs" />
+    <Compile Include="Base\DataFactory.cs" />
+    <Compile Include="Base\IdentityNation.cs" />
+    <Compile Include="Base\KtpApiResultBase.cs" />
+    <Compile Include="Base\KtpApiResultService.cs" />
+    <Compile Include="Base\KtpAuthHelper.cs" />
+    <Compile Include="Device\Device.cs" />
+    <Compile Include="Device\DeviceDelete.cs" />
+    <Compile Include="Device\DeviceGet.cs" />
+    <Compile Include="Device\DeviceResult.cs" />
+    <Compile Include="Device\DeviceSet.cs" />
+    <Compile Include="Device\EDeviceState.cs" />
+    <Compile Include="EPanelApiType.cs" />
+    <Compile Include="LoginApi.cs" />
+    <Compile Include="LoginResult.cs" />
+    <Compile Include="PanelApiCd\CdModel\PanelFaceResult.cs" />
+    <Compile Include="PanelApiCd\CdModel\PanelListResult.cs" />
+    <Compile Include="PanelApiCd\CdModel\PanelObjectResult.cs" />
+    <Compile Include="PanelApiCd\CdModel\PanelCreateSend.cs" />
+    <Compile Include="PanelApiCd\CdModel\PanelFaceInfoSend.cs" />
+    <Compile Include="PanelApiCd\CdModel\PanelStringResult.cs" />
+    <Compile Include="PanelApiCd\CdModel\PanelUserInfo.cs" />
+    <Compile Include="PanelApiCd\CdModel\CdResult.cs" />
+    <Compile Include="PanelApiCd\CdModel\Send.cs" />
+    <Compile Include="PanelApiCd\PanelBaseCd.cs" />
+    <Compile Include="PanelApiCd\PanelDateBeginPersonApi.cs" />
+    <Compile Include="PanelApiCd\PanelGetCdDeviceApi.cs" />
+    <Compile Include="PanelApiCd\PanelGetFaceApi.cs" />
+    <Compile Include="PanelApiCd\PanelSetPwdApi.cs" />
+    <Compile Include="PanelApiCd\PanelGetPersonApi.cs" />
+    <Compile Include="PanelApiCd\PanelDeletePersonApi.cs" />
+    <Compile Include="PanelApiCd\PanelFacePersonApi.cs" />
+    <Compile Include="PanelApiCd\PanelCreatePersonApi.cs" />
+    <Compile Include="PanelApiHq\HqModel\DeleteSend.cs" />
+    <Compile Include="PanelApiHq\HqModel\HqResult.cs" />
+    <Compile Include="PanelApiHq\HqModel\PanelHqUserInfo.cs" />
+    <Compile Include="PanelApiHq\HqModel\PanelPersonSend.cs" />
+    <Compile Include="PanelApiHq\HqModel\PanelSearchSend.cs" />
+    <Compile Include="PanelApiHq\HqModel\SearchInfo.cs" />
+    <Compile Include="PanelApiHq\PanelAddPersonApi.cs" />
+    <Compile Include="PanelApiHq\PanelBaseHq.cs" />
+    <Compile Include="PanelApiHq\PanelGetServiceParamApi.cs" />
+    <Compile Include="PanelApiHq\PanelHqDeleteAllPersonApi.cs" />
+    <Compile Include="PanelApiHq\PanelHqDeletePersonApi.cs" />
+    <Compile Include="PanelApiHq\PanelSearchPersonApi.cs" />
+    <Compile Include="PanelApiHq\PanelSearchPersonNumApi.cs" />
+    <Compile Include="PanelApiHq\PanelSearchPersonListApi.cs" />
+    <Compile Include="PanelApiHq\PanelGetSysParamApi.cs" />
+    <Compile Include="PanelApi\PanelBase.cs" />
+    <Compile Include="PanelApi\PanelGetDeviceApi.cs" />
+    <Compile Include="PanelApi\PanelLibraryDeleteApi.cs" />
+    <Compile Include="PanelApi\PanelMage\PanelResult.cs" />
+    <Compile Include="PanelApi\PanelMage\Response.cs" />
+    <Compile Include="PanelApi\PanelMage\FaceRecoState.cs" />
+    <Compile Include="PanelApi\PanelMage\MagType.cs" />
+    <Compile Include="PanelApi\PanelMage\UserType.cs" />
+    <Compile Include="PanelApi\PanelLibraryApi.cs" />
+    <Compile Include="PanelApi\PanelMage\WorkerSex.cs" />
+    <Compile Include="PanelApi\PanelWorkerDeleteApi.cs" />
+    <Compile Include="PanelApi\PanelWorkerListApi.cs" />
+    <Compile Include="PanelApi\PanelWorkerApi.cs" />
+    <Compile Include="PanelApi\PanelMage\PanelWorkerSend.cs" />
+    <Compile Include="PanelApi\PanelMage\PanelLibrarySend.cs" />
+    <Compile Include="PanelApi\PanelMage\Requirement.cs" />
+    <Compile Include="IMulePusher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PushSummary.cs" />
+    <Compile Include="TeamWorkers\DeviceInfo.cs" />
+    <Compile Include="TeamWorkers\Model\AuthResult.cs" />
+    <Compile Include="TeamWorkers\Model\AuthSend.cs" />
+    <Compile Include="TeamWorkers\Model\BankCardType.cs" />
+    <Compile Include="TeamWorkers\Model\TeamWorkType.cs" />
+    <Compile Include="TeamWorkers\Model\WorkerAuthenticationState.cs" />
+    <Compile Include="TeamWorkers\Model\WorkerAuthResult.cs" />
+    <Compile Include="TeamWorkers\Model\WorkerSysFail.cs" />
+    <Compile Include="TeamWorkers\TeamSet.cs" />
+    <Compile Include="TeamWorkers\WokerAuthGet.cs" />
+    <Compile Include="TeamWorkers\WokersAuthSet.cs" />
+    <Compile Include="TeamWorkers\WokersGet.cs" />
+    <Compile Include="TeamWorkers\Model\TeamResult.cs" />
+    <Compile Include="TeamWorkers\Model\TeamSend.cs" />
+    <Compile Include="TeamWorkers\WorkerDelete.cs" />
+    <Compile Include="TeamWorkers\WorkerAllGet.cs" />
+    <Compile Include="TeamWorkers\WorkerPhoneSet.cs" />
+    <Compile Include="TeamWorkers\WorkerPhoneGet.cs" />
+    <Compile Include="TeamWorkers\WorkerGet.cs" />
+    <Compile Include="TeamWorkers\Model\WorkerResult.cs" />
+    <Compile Include="TeamWorkers\Model\WorkersResult.cs" />
+    <Compile Include="TeamWorkers\Model\Workers.cs" />
+    <Compile Include="TeamWorkers\TeamGet.cs" />
+    <Compile Include="TeamWorkers\Model\WorkerSend.cs" />
+    <Compile Include="TeamWorkers\WorkerSet.cs" />
+    <Compile Include="TeamWorkers\WorkerTeamInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KtpAcsAotoUpdate\KtpAcsAotoUpdate.csproj">
+      <Project>{669C1176-B2FA-4F32-90CF-7F7A2B6E4BFC}</Project>
+      <Name>KtpAcsAotoUpdate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.Domain\KtpAcsMiddleware.Domain.csproj">
+      <Project>{72729835-f8f2-452a-be42-b870978a8865}</Project>
+      <Name>KtpAcsMiddleware.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.Infrastructure\KtpAcsMiddleware.Infrastructure.csproj">
+      <Project>{53a463e8-d6ff-413d-a95b-6089ef60003e}</Project>
+      <Name>KtpAcsMiddleware.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

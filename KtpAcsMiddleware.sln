@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KtpAcsMiddleware.KtpApiServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KtpAcsAotoUpdate", "KtpAcsAotoUpdate\KtpAcsAotoUpdate.csproj", "{669C1176-B2FA-4F32-90CF-7F7A2B6E4BFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KtpAcsMiddleware.KtpApiService.Asp", "KtpAcsMiddleware.KtpApiService.Asp\KtpAcsMiddleware.KtpApiService.Asp.csproj", "{59DB41EB-82EF-41D6-82E8-2D3392727277}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{669C1176-B2FA-4F32-90CF-7F7A2B6E4BFC}.Release|x64.Build.0 = Release|Any CPU
 		{669C1176-B2FA-4F32-90CF-7F7A2B6E4BFC}.Release|x86.ActiveCfg = Release|Any CPU
 		{669C1176-B2FA-4F32-90CF-7F7A2B6E4BFC}.Release|x86.Build.0 = Release|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Debug|x64.Build.0 = Debug|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Debug|x86.Build.0 = Debug|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Release|x64.ActiveCfg = Release|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Release|x64.Build.0 = Release|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Release|x86.ActiveCfg = Release|Any CPU
+		{59DB41EB-82EF-41D6-82E8-2D3392727277}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
