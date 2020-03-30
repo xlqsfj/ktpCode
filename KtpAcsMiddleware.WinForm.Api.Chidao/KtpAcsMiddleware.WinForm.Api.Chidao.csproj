@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD03A8AF-6680-4D03-98F8-F0BECCB29BF0}</ProjectGuid>
+    <ProjectGuid>{81CCF3ED-E9AE-427B-9B91-0A53D599EB29}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>KtpAcsMiddleware.WinForm.Api</RootNamespace>
-    <AssemblyName>KtpAcsMiddleware.WinForm.Api</AssemblyName>
+    <RootNamespace>KtpAcsMiddleware.WinForm.Api.Chidao</RootNamespace>
+    <AssemblyName>KtpAcsMiddleware.WinForm.Api.Chidao</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -51,10 +51,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>true</DelaySign>
@@ -140,7 +140,6 @@
     <Compile Include="Models\LoadingHelper.cs" />
     <Compile Include="Models\LoadMagEnum.cs" />
     <Compile Include="Models\MessageHelper.cs" />
-    <Compile Include="Models\TeamWorkType.cs" />
     <Compile Include="Shared\FormBaseUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,8 +362,6 @@
     <Content Include="image\off.png" />
     <Content Include="image\PanelImg.ico.ico" />
     <Content Include="image\shuaxin.png" />
-    <None Include="Resources\off.png" />
-    <None Include="Resources\shuaxin.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -381,6 +378,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
