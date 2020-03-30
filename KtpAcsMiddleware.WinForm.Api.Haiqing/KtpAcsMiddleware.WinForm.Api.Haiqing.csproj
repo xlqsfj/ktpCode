@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30E52D16-3976-4B13-9022-059072F2FBC6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>KtpAcsMiddleware.WinForm.Api.Haiqing</RootNamespace>
+    <AssemblyName>KtpAcsMiddleware.WinForm.Api.Haiqing</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <HockeyAppResourceId>d3ee1d58161a432ea09a476d532cb7c3</HockeyAppResourceId>
+    <PublishUrl>E:\panel\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9749C2CAFEBA807AA4493CD6D04157FE676E273C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ktp.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>lib\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="CSkin">
+      <HintPath>..\packages\CSkin\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FaceRecognition\DeviceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaceRecognition\DeviceListForm.Designer.cs">
+      <DependentUpon>DeviceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FaceRecognition\DeviceListFormBind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaceRecognition\FaceDeviceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaceRecognition\FaceDeviceDetail.Designer.cs">
+      <DependentUpon>FaceDeviceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KtpLibrary\WorkerSynFail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KtpLibrary\WorkerSynFail.Designer.cs">
+      <DependentUpon>WorkerSynFail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoadingHelper.cs" />
+    <Compile Include="Models\LoadMagEnum.cs" />
+    <Compile Include="Models\MessageHelper.cs" />
+    <Compile Include="Shared\FormBaseUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\FormBaseUi.Designer.cs">
+      <DependentUpon>FormBaseUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KtpLibrary\TeamSyncPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KtpLibrary\TeamSyncPrompt.Designer.cs">
+      <DependentUpon>TeamSyncPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KtpLibrary\WorkerSyncPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KtpLibrary\WorkerSyncPrompt.Designer.cs">
+      <DependentUpon>WorkerSyncPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AForgeVidePlayerHelper.cs" />
+    <Compile Include="Models\AForgeWorkerPicHelper.cs" />
+    <Compile Include="Shared\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormHelper.cs" />
+    <Compile Include="Models\PreValidationHelper.cs" />
+    <Compile Include="Models\SynIdCardApi.cs" />
+    <Compile Include="Models\SynIdCardDto.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\FormLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\FormLoad.Designer.cs">
+      <DependentUpon>FormLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\MessagePrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared\MessagePrompt.Designer.cs">
+      <DependentUpon>MessagePrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWorkers\AddTeamInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\AddTeamInfo.Designer.cs">
+      <DependentUpon>AddTeamInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWorkers\AddWorkerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\AddWorkerInfo.Designer.cs">
+      <DependentUpon>AddWorkerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWorkers\AddWorkerInfoBind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\TeamWorkerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\TeamWorkerList.Designer.cs">
+      <DependentUpon>TeamWorkerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWorkers\TeamWorkerListBind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\WorkerAddState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\WorkerAddState.Designer.cs">
+      <DependentUpon>WorkerAddState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWorkers\WorkerInfoList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\WorkerInfoList.Designer.cs">
+      <DependentUpon>WorkerInfoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamWorkers\WorkerPhoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWorkers\WorkerPhoneForm.Designer.cs">
+      <DependentUpon>WorkerPhoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\KtpGridPager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\KtpGridPager.Designer.cs">
+      <DependentUpon>KtpGridPager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerAuths\WorkerAuthList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkerAuths\WorkerAuthList.Designer.cs">
+      <DependentUpon>WorkerAuthList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerAuths\WorkerImgAuth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkerAuths\WorkerImgAuth.Designer.cs">
+      <DependentUpon>WorkerImgAuth.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FaceRecognition\DeviceListForm.resx">
+      <DependentUpon>DeviceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaceRecognition\FaceDeviceDetail.resx">
+      <DependentUpon>FaceDeviceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KtpLibrary\TeamSyncPrompt.resx">
+      <DependentUpon>TeamSyncPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KtpLibrary\WorkerSyncPrompt.resx">
+      <DependentUpon>WorkerSyncPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KtpLibrary\WorkerSynFail.resx">
+      <DependentUpon>WorkerSynFail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Shared\FormLoad.resx">
+      <DependentUpon>FormLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\MessagePrompt.resx">
+      <DependentUpon>MessagePrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamWorkers\AddTeamInfo.resx">
+      <DependentUpon>AddTeamInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamWorkers\AddWorkerInfo.resx">
+      <DependentUpon>AddWorkerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamWorkers\TeamWorkerList.resx">
+      <DependentUpon>TeamWorkerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamWorkers\WorkerAddState.resx">
+      <DependentUpon>WorkerAddState.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamWorkers\WorkerInfoList.resx">
+      <DependentUpon>WorkerInfoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamWorkers\WorkerPhoneForm.resx">
+      <DependentUpon>WorkerPhoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\KtpGridPager.resx">
+      <DependentUpon>KtpGridPager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerAuths\WorkerAuthList.resx">
+      <DependentUpon>WorkerAuthList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerAuths\WorkerImgAuth.resx">
+      <DependentUpon>WorkerImgAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KtpAcsAotoUpdate\KtpAcsAotoUpdate.csproj">
+      <Project>{669c1176-b2fa-4f32-90cf-7f7a2b6e4bfc}</Project>
+      <Name>KtpAcsAotoUpdate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.Infrastructure\KtpAcsMiddleware.Infrastructure.csproj">
+      <Project>{53a463e8-d6ff-413d-a95b-6089ef60003e}</Project>
+      <Name>KtpAcsMiddleware.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KtpAcsMiddleware.KtpApiService\KtpAcsMiddleware.KtpApiService.csproj">
+      <Project>{f7adc634-ff2a-4b90-a07e-789afabbc56f}</Project>
+      <Name>KtpAcsMiddleware.KtpApiService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\250.png" />
+    <Content Include="image\300.png" />
+    <Content Include="image\bitbug_favicon.ico" />
+    <Content Include="image\img_404.png" />
+    <Content Include="image\loading3.gif" />
+    <Content Include="image\off.png" />
+    <Content Include="image\PanelImg.ico.ico" />
+    <Content Include="image\shuaxin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
