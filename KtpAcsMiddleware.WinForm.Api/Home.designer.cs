@@ -340,6 +340,7 @@
             this.con_isDivce.Size = new System.Drawing.Size(160, 22);
             this.con_isDivce.Text = "是否有面板录入";
             this.con_isDivce.CheckStateChanged += new System.EventHandler(this.con_isDivce_CheckStateChanged);
+            this.con_isDivce.Click += new System.EventHandler(this.con_isDivce_Click);
             // 
             // menu_application_journal
             // 

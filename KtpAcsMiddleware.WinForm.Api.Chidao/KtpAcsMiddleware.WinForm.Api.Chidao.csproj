@@ -60,10 +60,10 @@
     <DelaySign>true</DelaySign>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>9749C2CAFEBA807AA4493CD6D04157FE676E273C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>96F709765CBC54675A86DB614ECFBE896E5C4F1E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ktp.pfx</ManifestKeyFile>
+    <ManifestKeyFile>KtpAcsMiddleware.WinForm.Api.Chidao_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -324,6 +324,7 @@
     <EmbeddedResource Include="WorkerAuths\WorkerImgAuth.resx">
       <DependentUpon>WorkerImgAuth.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="KtpAcsMiddleware.WinForm.Api.Chidao_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

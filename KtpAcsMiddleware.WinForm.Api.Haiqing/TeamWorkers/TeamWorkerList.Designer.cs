@@ -108,31 +108,31 @@
             this.con_addTeam,
             this.con_editTeam});
             this.TeamsCms.Name = "TeamsCms";
-            this.TeamsCms.Size = new System.Drawing.Size(181, 114);
+            this.TeamsCms.Size = new System.Drawing.Size(125, 92);
             // 
             // TeamReloadMenuItem
             // 
             this.TeamReloadMenuItem.Name = "TeamReloadMenuItem";
-            this.TeamReloadMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.TeamReloadMenuItem.Size = new System.Drawing.Size(124, 22);
             this.TeamReloadMenuItem.Text = "刷新";
             // 
             // TeamWorkerAddMenuItem
             // 
             this.TeamWorkerAddMenuItem.Name = "TeamWorkerAddMenuItem";
-            this.TeamWorkerAddMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.TeamWorkerAddMenuItem.Size = new System.Drawing.Size(124, 22);
             this.TeamWorkerAddMenuItem.Text = "添加工人";
             // 
             // con_addTeam
             // 
             this.con_addTeam.Name = "con_addTeam";
-            this.con_addTeam.Size = new System.Drawing.Size(180, 22);
+            this.con_addTeam.Size = new System.Drawing.Size(124, 22);
             this.con_addTeam.Text = "添加班组";
             this.con_addTeam.Click += new System.EventHandler(this.con_addTeam_Click);
             // 
             // con_editTeam
             // 
             this.con_editTeam.Name = "con_editTeam";
-            this.con_editTeam.Size = new System.Drawing.Size(180, 22);
+            this.con_editTeam.Size = new System.Drawing.Size(124, 22);
             this.con_editTeam.Text = "编辑班组";
             this.con_editTeam.Click += new System.EventHandler(this.con_editTeam_Click);
             // 
@@ -160,7 +160,7 @@
             this.WorkersGridPager.Name = "WorkersGridPager";
             this.WorkersGridPager.PageCount = 0;
             this.WorkersGridPager.PageIndex = 1;
-            this.WorkersGridPager.PageSize = 15;
+            this.WorkersGridPager.PageSize = 20;
             this.WorkersGridPager.PagingHandler = null;
             this.WorkersGridPager.Size = new System.Drawing.Size(295, 25);
             this.WorkersGridPager.TabIndex = 19;

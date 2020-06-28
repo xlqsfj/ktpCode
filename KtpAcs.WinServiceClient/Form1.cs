@@ -46,6 +46,7 @@ namespace KtpAcs.WinServiceClient
             this.InstallService(serviceFilePath);
             MessageBox.Show("服务安装完成");
             button1.Text = "服务安装";
+          
         }
 
 

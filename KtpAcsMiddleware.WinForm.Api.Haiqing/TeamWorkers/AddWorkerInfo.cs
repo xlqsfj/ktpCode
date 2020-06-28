@@ -381,22 +381,24 @@ namespace KtpAcsMiddleware.WinForm.TeamWorkers
                 {
                     workers.localImgFileName1 = _identityPicId;
                 }
-                else if (!string.IsNullOrEmpty(_url_identityPicId))
-                {
-                    workers.popPic2 = _url_identityPicId;
+                if (!string.IsNullOrEmpty(_upic))
+                {//本地头像
+                    workers.localImgUpic = _upic;
                 }
                 if (!string.IsNullOrEmpty(_identityBackPicId))
                 {//头像背面
                     workers.localImgFileName2 = _identityBackPicId;
                 }
+                else if (!string.IsNullOrEmpty(_url_identityPicId))
+                {
+                    workers.popPic2 = _url_identityPicId;
+                }
+               
                 else if (!string.IsNullOrEmpty(_url_identityBackPicId))
                 {
                     workers.popPic3 = _url_identityBackPicId;
                 }
-                if (!string.IsNullOrEmpty(_upic))
-                {//本地头像
-                    workers.localImgUpic = _upic;
-                }
+               
                 else if (!string.IsNullOrEmpty(_url_upic))
                 {
                     workers.upic = _url_upic;

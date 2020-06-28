@@ -4,6 +4,7 @@ using KtpAcsMiddleware.WinForm.Api.TeamWorkers;
 using KtpAcsMiddleware.WinForm.FaceRecognition;
 using System;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace KtpAcsMiddleware.WinForm.Api
 {
@@ -17,6 +18,8 @@ namespace KtpAcsMiddleware.WinForm.Api
         {
             try
             {
+             
+                 
                 //设置应用程序处理异常方式：ThreadException处理
                 Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
                 //处理UI线程异常

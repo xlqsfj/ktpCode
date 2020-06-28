@@ -283,7 +283,7 @@ namespace KtpAcsMiddleware.KtpApiService.PanelApiHq
                 info = new UserDelete()
                 {
                     CustomizeID = attrId,
-                    TotalNum = 0,
+                    TotalNum = 1,
                     IdType = 0,
                     DeviceID = PanelBaseHq.GetDeviceId(deviceIp),
 

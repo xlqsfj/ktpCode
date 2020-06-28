@@ -30,7 +30,7 @@ namespace KtpAcsMiddleware.KtpApiService
         //PushSummary Push(int billID);
 
         /// <summary>
-        /// 单次推送数据最多包含的数据条目数。返回0表示不限制大小
+        ///单次推送数据最多包含的数据条目数。返回0表示不限制大小
         /// </summary>
         int MaxPackageSize { get; }
 

@@ -582,5 +582,10 @@ namespace KtpAcsMiddleware.WinForm
             LoadingHelper.ShowLoadingScreen();//显示
             GetVeiveInfo();
         }
+
+        private void con_isDivce_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
